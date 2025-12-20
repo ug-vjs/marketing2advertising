@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vj Junior Free Full Movies</title>
+<meta name="description" content="Vj Junior ✓ Free Cartoons & Animations ✓ Translated Movies">
+
+<!-- ===================== BASE STYLES ===================== -->
+<style>
+* { box-sizing: border-box; transition: background 0.3s, color 0.3s; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  line-height: 1.7;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* MENU */
+.menu-bar {
+  position: sticky;
+  buttom: 0;
+  width: 70%;
+  max-width: 1000px;
+  margin: 0 auto 20px;
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-radius: 0 0 12px 12px;
+  z-index: 9999;
+  transition: background 0.3s, color 0.3s;
+}
+
+.menu-bar a {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  padding: 8px 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.menu-home { background: #04ff00; color: #ff00fe; }
+.menu-movies { background: #3d85c6; color: #ffa400; }
+.menu-blogs { background: #fcff01; color: #351c75; }
+.menu-about { background: #01ffff; color: #cc0000; }
+.menu-contact { background: #4c1130; color: #fcff01; }
+.menu-jobs { background: #ff00fe; color: #04ff00; }
+
+@media(max-width:600px){
+  .menu-bar { width: 95% }
+  .menu-bar a { font-size: 15px; padding: 6px 10px }
+}
+
+/* BLOG POST CONTENT */
+.content {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.content h1, .content h2 {
+  text-align: center;
+  color: #fcff01;
+}
+
+.content p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.separator {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.separator img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* SEARCH BOX */
+.search-bar-wrapper {
+  max-width: 600px;
+  margin: 40px auto 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.search-bar-wrapper input {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 50px;
+  border: 2px solid #fcff01;
+  background: #111;
+  color: #fff;
+  font-size: 18px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-bar-wrapper input:focus {
+  border-color: #e50914;
+  box-shadow: 0 0 10px #e50914;
+}
+
+.search-bar-wrapper button {
+  background: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.search-bar-wrapper button:hover {
+  transform: scale(1.1);
+  background: #b00610;
+}
+
+/* SEARCH RESULTS */
+.search-results {
+  max-width: 1000px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.result-card {
+  background: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease;
+}
+
+.result-card:hover {
+  transform: scale(1.05);
+}
+
+.result-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.result-title {
+  background: #e50914;
+  padding: 10px;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 15px;
+}
+
+/* MOVIE GRID */
+.movie-grid-wrapper {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.grid-title {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 25px;
+  color: #fcff01;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.movie-card {
+  background: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(229, 9, 20, 0.7);
+}
+
+.poster {
+  position: relative;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+}
+
+.movie-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.movie-card:hover img {
+  filter: brightness(0.6);
+  transform: scale(1.1);
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 45px;
+  color: white;
+  background: rgba(229, 9, 20, 0.9);
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  text-align: center;
+  line-height: 65px;
+  box-shadow: 0 0 20px #e50914;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.movie-card:hover .play-button {
+  opacity: 1;
+}
+
+.movie-title {
+  text-align: center;
+  background: #e50914;
+  color: white;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: capitalize;
+  height: 55px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* DARK/LIGHT MODE */
+body.light-mode {
+  background: #f5f5f5;
+  color: #111;
+}
+
+body.light-mode .menu-bar { background: #eee; }
+body.light-mode .footer { background: #ddd; color: #111; }
+body.light-mode .footer a { color: #007700; }
+body.light-mode .content h1, body.light-mode .content h2 { color: #007700; }
+body.light-mode .content p { color: #111; }
+body.light-mode .movie-card { background: #eee; }
+body.light-mode .movie-title { background: #007700; color: #fff; }
+
+/* TOGGLE BUTTON */
+#modeToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #fcff01;
+  color: #111;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 10000;
+}
+
+#modeToggle:hover { background: #ffdc00; }
+</style>
+</head>
+<body>
+
+
+<!-- ===================== BLOG POST ===================== -->
+<div class="content">
+  <div class="separator">
+
+
+    <p style="text-align: center;"><span data-end="280" data-start="172">🔥 Man on Fire&nbsp; — A Deep Dive Into Denzel Washington’s Most Intense Performance</span></p><div><h2 style="text-align: center;"><strong data-end="280" data-start="172"><span style="font-size: large;">&nbsp;Action | Crime | Drama</span></strong></h2><strong data-end="280" data-start="172"><div style="text-align: center;"><strong data-end="280" data-start="172"><span style="font-size: medium;">VJ Junior&nbsp;</span></strong></div></strong></div><div><div class="separator" style="clear: both; text-align: center;"><a href="https://www.marketing2advertising.com/p/man-on-fire-vj-junior.html" imageanchor="1" style="margin-left: 1em; margin-right: 1em;" target="_blank"><img alt="vj junior  - Man on Fire" border="0" data-original-height="400" data-original-width="288" height="640" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjtSrvJrdUSJrMofMZQ2HmOq4YvfSeM59WMKzZtVG225IJx4TpPn94AFV-dRAuX3xGs7NS09JAt86bFxvKVLmCV3IcLnqyQfaHZYPlZeO5wzEC4OKz3ArDpGwHIBIjdM7sdYKuVNrYI_pxPhsC1g3SsC19B6j2xgLjOmYhO1NU2s-GMau5kp62B05pob_-o/w460-h640/Best%20cheap%20web%20hosting%202025_%20Understanding%20ZESA%20Tokens_%20Your%20Guide%20to%20Prepaid%20Electricity%20in%20Zimbabwe%20-%20Google%20Chrome%2012_13_2025%207_09_30%20PM.png" title="vj junior  - Man on Fire" width="460" /></a></div></div><p data-end="586" data-start="282" style="font-size: x-large;">Few action-drama films manage to combine raw emotion, explosive action, and deep character development the way&nbsp;<em data-end="406" data-start="393">Man on Fire</em>&nbsp;does. Directed by Tony Scott and powered by a powerhouse performance from Denzel Washington, this 2004 masterpiece remains one of the most gripping revenge thrillers of the 2000s.</p><p data-end="755" data-start="588" style="font-size: x-large;">With&nbsp;<strong data-end="608" data-start="593">VJ Junior’s</strong>&nbsp;narration style, the film becomes even more thrilling for East African audiences — packed with emotion, suspense, and that unmistakable VJ energy.</p><hr data-end="760" data-start="757" style="font-size: x-large;" /><h2 data-end="785" data-start="762"><strong data-end="785" data-start="765">🎭 Story Summary</strong></h2><p data-end="1048" data-start="787" style="font-size: x-large;"><em data-end="800" data-start="787">Man on Fire</em>&nbsp;follows&nbsp;<strong data-end="824" data-start="809">John Creasy</strong>, a former CIA operative and ex–Special Forces assassin haunted by his violent past. Struggling with trauma, alcoholism, and a loss of purpose, Creasy arrives in&nbsp;<strong data-end="1001" data-start="986">Mexico City</strong>, a place shaken by kidnappings and corruption.</p><p data-end="1280" data-start="1050" style="font-size: x-large;">He is hired to protect&nbsp;<strong data-end="1087" data-start="1073">Pita Ramos</strong>, a lively young girl whose wealthy family fears she may be targeted. What begins as a simple bodyguard job becomes something deeper — a bond built on trust, healing, and unexpected friendship.</p><p data-end="1470" data-start="1282" style="font-size: x-large;">But when tragedy strikes and Pita is kidnapped in a violent ambush, Creasy is pushed past his limits. What follows is a relentless and emotional journey of revenge, justice, and sacrifice.</p><hr data-end="1475" data-start="1472" style="font-size: x-large;" /><h2 data-end="1510" data-start="1477"><strong data-end="1510" data-start="1480">💥 Why the Film Stands Out</strong></h2><h3 data-end="1563" data-start="1512"><strong data-end="1561" data-start="1516">1. Denzel Washington at His Absolute Best</strong></h3><p data-end="1736" data-start="1564" style="font-size: x-large;">Denzel delivers a performance filled with pain, vulnerability, and ruthless determination. His portrayal of Creasy feels real — a broken man rediscovering a reason to live.</p><h3 data-end="1788" data-start="1738"><strong data-end="1786" data-start="1742">2. A Perfect Blend of Emotion and Action</strong></h3><p data-end="1947" data-start="1789" style="font-size: x-large;">Unlike many revenge films,&nbsp;<em data-end="1829" data-start="1816">Man on Fire</em>&nbsp;makes you care deeply about its characters. Every action scene feels earned, fueled by emotion rather than spectacle.</p><h3 data-end="1992" data-start="1949"><strong data-end="1990" data-start="1953">3. Tony Scott’s Stylish Direction</strong></h3><p data-end="2165" data-start="1993" style="font-size: x-large;">From the gritty cinematography to the bold editing style, Tony Scott creates a world that feels dangerous, chaotic, and unpredictable — mirroring Creasy’s internal turmoil.</p><h3 data-end="2215" data-start="2167"><strong data-end="2213" data-start="2171">4. A Heartbreaking but Beautiful Story</strong></h3><p data-end="2336" data-start="2216" style="font-size: x-large;">At its core,&nbsp;<em data-end="2242" data-start="2229">Man on Fire</em>&nbsp;is not just about revenge; it’s about redemption, love, protection, and the price of justice.</p><hr data-end="2341" data-start="2338" style="font-size: x-large;" /><h2 data-end="2373" data-start="2343"><strong data-end="2373" data-start="2346">🌆 Themes That Hit Hard</strong></h2><ul data-end="2741" data-start="2375" style="font-size: x-large;"><li data-end="2475" data-start="2375"><p data-end="2475" data-start="2377"><strong data-end="2392" data-start="2377">Redemption:</strong>&nbsp;Creasy’s journey is one of rediscovering humanity through the child he protects.</p></li><li data-end="2555" data-start="2476"><p data-end="2555" data-start="2478"><strong data-end="2492" data-start="2478">Vengeance:</strong>&nbsp;When pushed, even a broken man becomes an unstoppable force.</p></li><li data-end="2649" data-start="2556"><p data-end="2649" data-start="2558"><strong data-end="2573" data-start="2558">Corruption:</strong>&nbsp;The film uncovers layers of crime, kidnapping rings, and dirty officials.</p></li><li data-end="2741" data-start="2650"><p data-end="2741" data-start="2652"><strong data-end="2666" data-start="2652">Sacrifice:</strong>&nbsp;The emotional ending shows the lengths a man will go to protect innocence.</p></li></ul><hr data-end="2746" data-start="2743" style="font-size: x-large;" /><h2 data-end="2774" data-start="2748"><strong data-end="2774" data-start="2751">🔊 VJ Junior’s Take</strong></h2><p data-end="2887" data-start="2776" style="font-size: x-large;">With VJ Junior’s iconic voiceover style, the film becomes an even more intense experience. His commentary adds:</p><ul data-end="3031" data-start="2889" style="font-size: x-large;"><li data-end="2915" data-start="2889"><p data-end="2915" data-start="2891">Humor in tense moments</p></li><li data-end="2946" data-start="2916"><p data-end="2946" data-start="2918">Clarity in dramatic scenes</p></li><li data-end="2981" data-start="2947"><p data-end="2981" data-start="2949">Energy during action sequences</p></li><li data-end="3031" data-start="2982"><p data-end="3031" data-start="2984">Local flavor that East African audiences love</p></li></ul><p data-end="3122" data-start="3033" style="font-size: x-large;">The result is a unique storytelling blend — Hollywood action plus VJ-style entertainment.</p><hr data-end="3127" data-start="3124" style="font-size: x-large;" /><h2 data-end="3154" data-start="3129"><strong data-end="3154" data-start="3132">👀 Viewer Interest</strong></h2><p data-end="3306" data-start="3156"><span style="font-size: large;"><b><span data-end="3170" data-start="3156">Views:&nbsp;</span>29743<br data-end="3173" data-start="3170" /></b>People keep returning to this film because it delivers everything: emotional depth, thrilling action, and unforgettable performances.</span></p><hr data-end="3311" data-start="3308" style="font-size: x-large;" /><h2 data-end="3337" data-start="3313"><strong data-end="3337" data-start="3316">🔥 Final Thoughts</strong></h2><p data-end="3572" data-start="3339" style="font-size: x-large;"><em data-end="3352" data-start="3339">Man on Fire</em>&nbsp;is more than an action movie — it is a powerful emotional journey. Denzel Washington transforms Creasy into a complex, broken hero driven by love and justice. It’s a film that stays with you long after the credits roll.</p><p data-end="3789" data-start="3574" style="font-size: x-large;">Whether you’re a fan of action, drama, crime thrillers, or just love Denzel Washington at his most intense, this is a movie that deserves a spot on your watchlist — especially in&nbsp;<strong data-end="3768" data-start="3753">VJ Junior’s</strong>&nbsp;unforgettable voice.</p>
+
+</div>
+
+<!-- ===================== SEARCH BOX ===================== -->
+<div class="search-bar-wrapper">
+  <input type="text" id="searchInput" placeholder="Search Movies...">
+  <button id="searchBtn">&#128269;</button>
+</div>
+<div id="searchResults" class="search-results"></div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"
+     crossorigin="anonymous"></script>
+<!-- Vertical New -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2269884583846743"
+     data-ad-slot="2906167922"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<!-- ===================== MOVIE GRID ===================== -->
+<div class="movie-grid-wrapper">
+  <h2 class="grid-title">What Would You Like to Watch?</h2>
+  <div id="movie-grid" class="movie-grid"></div>
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"
+     crossorigin="anonymous"></script>
+<!-- Vertical New -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2269884583846743"
+     data-ad-slot="2906167922"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<!-- ===================== MENU ===================== -->
+<nav class="menu-bar">
+  <a class="menu-home" href="/">Home</a>
+  <a class="menu-movies" href="https://www.marketing2advertising.com/search/label/movies1000.html">Movies</a>
+  <a class="menu-blogs" href="https://www.marketing2advertising.com/search/blogs.html">Blogs</a>
+  <a class="menu-about" href="https://www.marketing2advertising.com/p/about-us.html">About</a>
+  <a class="menu-contact" href="https://www.marketing2advertising.com/p/contact-us.html">Contact</a>
+  <a class="menu-jobs" href="https://www.marketing2advertising.com/2015/12/job-matching-across-ireland-singapore.html">Jobs</a>
+</nav>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-content">
+    <a href="https://www.marketing2advertising.com/contact-us.html">Contact</a> |
+    <a href="https://www.marketing2advertising.com/privacy-policy">Privacy</a> |
+    <a href="https://www.marketing2advertising.com/p/affiliate-marketing-and-adsense.html">Disclosure</a> |
+    <a href="https://www.marketing2advertising.com/terms-and-conditions">Terms</a>
+    <p>© 2025 Marketing2advertising</p>
+  </div>
+</footer>
+
+<style>
+.footer {
+  width: 100%;
+  background: #111;
+  padding: 20px 0;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer a {
+  color: #04ff00;
+  text-decoration: none;
+  margin: 0 6px;
+}
+
+.footer p {
+  color: #aaa;
+  margin-top: 8px;
+  font-size: 14px;
+}
+</style>
+
+
+<!-- ===================== DARK/LIGHT MODE TOGGLE ===================== -->
+<button id="modeToggle">LIGHT Mode</button>
+
+<!-- ===================== JAVASCRIPT ===================== -->
+<script>
+// DARK/LIGHT MODE
+const toggleBtn = document.getElementById('modeToggle');
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+});
+
+// BLOGGER SEARCH
+const BLOG_URL = "https://www.kfc.marketing2advertising.com/";
+
+function searchPosts(query) {
+  if (!query) return;
+  const script = document.createElement("script");
+  script.src = `${BLOG_URL}/feeds/posts/default?alt=json-in-script&q=${encodeURIComponent(query)}&max-results=30&callback=showSearchResults`;
+  document.body.appendChild(script);
+}
+
+function showSearchResults(json) {
+  const container = document.getElementById("searchResults");
+  container.innerHTML = "";
+  if (!json.feed || !json.feed.entry) {
+    container.innerHTML = `<p style="text-align:center;color:#aaa;">No results found.</p>`;
+    return;
+  }
+  let html = "";
+  json.feed.entry.forEach(entry => {
+    const title = entry.title.$t;
+    let url = "";
+    let img = "https://via.placeholder.com/300x450?text=No+Image";
+    entry.link.forEach(l => { if(l.rel==="alternate") url=l.href; });
+    if(entry.media$thumbnail) img = entry.media$thumbnail.url.replace("/s72-c/", "/s400/");
+    else if(entry.content) {
+      const match = entry.content.$t.match(/<img[^>]+src="([^">]+)"/);
+      if(match) img = match[1];
+    }
+    html += `<div class="result-card">
+      <a href="${url}" target="_blank" rel="noopener noreferrer">
+        <img src="${img}" alt="${title}">
+        <div class="result-title">${title}</div>
+      </a>
+    </div>`;
+  });
+  container.innerHTML = html;
+}
+
+document.getElementById("searchBtn").addEventListener("click", () => {
+  const query = document.getElementById("searchInput").value.trim();
+  searchPosts(query);
+});
+
+document.getElementById("searchInput").addEventListener("keypress", (e) => {
+  if (e.key === "Enter") document.getElementById("searchBtn").click();
+});
+
+// MOVIE GRID
+function renderMovieSlider(json) {
+  const postsContainer = document.getElementById('movie-grid');
+  let postsHTML = '';
+  const maxPosts = 50;
+  for(let i=0;i<Math.min(json.feed.entry.length,maxPosts);i++){
+    const entry=json.feed.entry[i];
+    const title=entry.title.$t;
+    let url='';
+    for(let j=0;j<entry.link.length;j++){if(entry.link[j].rel==='alternate'){url=entry.link[j].href;break;}}
+    let imgUrl='https://via.placeholder.com/300x450?text=No+Image';
+    if(entry.media$thumbnail) imgUrl=entry.media$thumbnail.url.replace('/s72-c/','/s640/');
+    else if(entry.content){const match=entry.content.$t.match(/<img[^>]+src="([^">]+)"/); if(match && match[1]) imgUrl=match[1];}
+    postsHTML+=`<div class="movie-card"><a href="${url}" title="${title}" target="_blank" rel="noopener noreferrer"><div class="poster"><img src="${imgUrl}" alt="${title}"><div class="play-button">&#9658;</div></div><div class="movie-title">${title}</div></a></div>`;
+  }
+  postsContainer.innerHTML = postsHTML;
+}
+
+// Load movies from label "movies1000"
+const script=document.createElement("script");
+script.src=`${BLOG_URL}/feeds/posts/default/-/movies1000?alt=json-in-script&callback=renderMovieSlider&max-results=1000`;
+document.body.appendChild(script);
+</script>
+
+<!-- Google AdSense script -->
+<script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743'></script>
+
+<!-- Overlay container -->
+<div id='ad-overlay' style='display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.75); z-index:999999; justify-content:center; align-items:center;'>
+    <div style='position:absolute; top:20px; right:20px; text-align:right;'>
+        <div id='countdown' style='color:white; font-size:22px; font-weight:bold; margin-bottom:8px;'></div>
+        <button id='close-ad' style='display:none; background:#fff; border:none; font-size:20px; padding:6px 12px; cursor:pointer; border-radius:4px; font-weight:bold;'>Skip</button>
+    </div>
+
+    <div id='ad-wrapper' style='display:flex; justify-content:center; align-items:center; width:100%; height:100%; text-align:center;'></div>
+</div>
+
+<script>
+/* ------------------------------------
+   5 rotating ads
+------------------------------------- */
+const ads = [
+    { client:"ca-pub-2269884583846743", slot:"2359999321", width:300, height:250 },
+    { client:"ca-pub-2269884583846743", slot:"2038317814", width:300, height:600 },
+    { client:"ca-pub-2269884583846743", slot:"4256856469", width:250, height:250 },
+    { client:"ca-pub-2269884583846743", slot:"8811425590", width:320, height:100 },
+    { client:"ca-pub-2269884583846743", slot:"5610977415", width:336, height:280 }
+];
+
+let currentAdIndex = 0;
+let skipClicked = false; // Flag to track if the "Skip" button was clicked
+
+/* Show ad overlay with variable countdown */
+function showAdOverlay(customSeconds = 8) {
+    const overlay = document.getElementById("ad-overlay");
+    const countdownEl = document.getElementById("countdown");
+    const closeBtn = document.getElementById("close-ad");
+    const adWrapper = document.getElementById("ad-wrapper");
+
+    overlay.style.display = "flex";
+    closeBtn.style.display = "none"; // Initially hide the button
+    adWrapper.innerHTML = "";
+
+    /* Load ad */
+    const ad = ads[currentAdIndex];
+    const ins = document.createElement("ins");
+    ins.className = "adsbygoogle";
+    ins.style.display = "inline-block";
+    ins.style.width = ad.width + "px";
+    ins.style.height = ad.height + "px";
+    ins.setAttribute("data-ad-client", ad.client);
+    ins.setAttribute("data-ad-slot", ad.slot);
+
+    adWrapper.appendChild(ins);
+    (adsbygoogle = window.adsbygoogle || []).push({});
+
+    /* Prepare next rotation */
+    currentAdIndex = (currentAdIndex + 1) % ads.length;
+
+    /* Countdown logic */
+    let timeLeft = customSeconds;
+    countdownEl.textContent = "Close available in: " + timeLeft;
+
+    const timer = setInterval(function() {
+        timeLeft--;
+        countdownEl.textContent = "Close available in: " + timeLeft;
+
+        if (timeLeft === 0) {
+            closeBtn.style.display = "inline-block"; // Show the button after countdown finishes
+            closeBtn.textContent = "X"; // Change button to "X" after countdown
+            clearInterval(timer);
+        }
+    }, 1000); // 1-second interval for countdown
+
+    /* Close button behavior */
+    closeBtn.onclick = function() {
+        overlay.style.display = "none"; // Close the ad overlay
+    };
+}
+
+/* --------------------------------------------
+   SPECIAL RULE: First opening = 2 ads with delay
+--------------------------------------------- */
+function runInitialTwoAds() {
+    // Ad 1 = 7 seconds
+    showAdOverlay(7); // Ad 1 displays for 7 seconds
+
+    // After 7 seconds, show the Skip button
+    setTimeout(() => {
+        const closeBtn = document.getElementById("close-ad");
+        closeBtn.style.display = "inline-block"; // Show "Skip" button
+        closeBtn.textContent = "Skip"; // Set button text to "Skip"
+    }, 7000); // Show Skip button after 7 seconds
+
+    // Check if "Skip" button is clicked before transitioning to Ad 2
+    const closeBtn = document.getElementById("close-ad");
+    closeBtn.onclick = function() {
+        skipClicked = true; // Mark that "Skip" was clicked
+        showAdOverlay(8); // Show Ad 2 immediately (for 8 seconds)
+        closeBtn.style.display = "none"; // Hide the skip button
+    };
+
+    // If "Skip" button isn't clicked, Ad 2 will show after 13 more seconds (20 seconds total)
+    setTimeout(() => {
+        if (!skipClicked) {
+            showAdOverlay(8); // Ad 2 shows for 8 seconds after the delay
+        }
+    }, 20000); // Trigger after 20 seconds (7 seconds for Ad 1 + 13 seconds wait)
+}
+
+/* --------------------------------------------
+   Start full schedule AFTER first 20 seconds
+--------------------------------------------- */
+
+runInitialTwoAds(); // Display first two ads immediately (7s + 13s wait = 20s)
+
+/* Start schedule AFTER the second ad finishes */
+setTimeout(() => {
+
+    // 1) 40 seconds
+    setTimeout(showAdOverlay, 40000);
+
+    // 2) 90 seconds
+    setTimeout(showAdOverlay, 90000);
+
+    // 3) 150 seconds
+    setTimeout(showAdOverlay, 150000);
+
+    // 4) 270 seconds
+    setTimeout(showAdOverlay, 270000);
+
+    // 5) Every 570 seconds
+    setInterval(showAdOverlay, 570000);
+
+}, 20000); // Wait for the first 20 seconds (7 + 13) to complete
+</script>
+</body>
+</html>
