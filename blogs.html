@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vj Junior Free Full Movies</title>
+
+<meta name="description" content="Vj Junior ✓ Free Cartoons & Animations ✓ Translated Movies">
+
+<!-- ===================== MENU STYLES ===================== -->
+<style>
+body{
+  margin:0;
+  background:#000;
+  font-family:Arial,sans-serif;
+  color:#fff;
+}
+
+/* MENU */
+.menu-bar{
+  position:sticky;
+  top:0;
+  width:70%;
+  max-width:1000px;
+  margin:0 auto 15px;
+  background:#fff;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  padding:10px 0;
+  border-radius:0 0 12px 12px;
+  z-index:9999;
+}
+
+.menu-bar a{
+  font-family:Georgia,serif;
+  font-weight:700;
+  padding:8px 14px;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-size:18px;
+  border-radius:6px;
+}
+
+.menu-home{background:#04ff00;color:#ff00fe}
+.menu-movies{background:#3d85c6;color:#ffa400}
+.menu-blogs{background:#fcff01;color:#351c75}
+.menu-about{background:#01ffff;color:#cc0000}
+.menu-contact{background:#4c1130;color:#fcff01}
+.menu-jobs{background:#ff00fe;color:#04ff00}
+
+@media(max-width:600px){
+  .menu-bar{width:95%}
+  .menu-bar a{font-size:15px;padding:6px 10px}
+}
+</style>
+
+<!-- ===================== SWIPER ===================== -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<style>
+.swiper{max-width:1200px;margin:20px auto}
+</style>
+
+</head>
+<body>
+
+<!-- ===================== MENU ===================== -->
+<nav class="menu-bar">
+  <a class="menu-home" href="/">Home</a>
+  <a class="menu-movies" href="https://www.marketing2advertising.com/search/label/movies1000">Movies</a>
+  <a class="menu-blogs" href="https://www.marketing2advertising.com/search/">Blogs</a>
+  <a class="menu-about" href="https://www.marketing2advertising.com/p/about-us.html">About</a>
+  <a class="menu-contact" href="https://www.marketing2advertising.com/p/contact-us.html">Contact</a>
+  <a class="menu-jobs" href="https://www.marketing2advertising.com/2015/12/job-matching-across-ireland-singapore.html">Jobs</a>
+</nav>
+
+<!-- ===================== SLIDER ===================== -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper" id="movie-slider-posts"></div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+function renderMovieSliderPosts(json){
+  var html="";
+  var e=json.feed.entry||[];
+
+  for(var i=0;i<e.length;i++){
+    var t=e[i].title.$t;
+    var u="";
+    for(var j=0;j<e[i].link.length;j++){
+      if(e[i].link[j].rel==="alternate"){u=e[i].link[j].href}
+    }
+    var img=e[i].media$thumbnail
+      ? e[i].media$thumbnail.url.replace("/s72-c/","/s640/")
+      :"https://via.placeholder.com/300x450";
+
+    html+=`
+    <div class="swiper-slide">
+      <a href="${u}">
+        <img src="${img}" style="width:100%;border-radius:8px">
+        <div style="text-align:center;margin-top:8px;font-weight:bold">${t}</div>
+      </a>
+    </div>`;
+  }
+
+  document.getElementById("movie-slider-posts").innerHTML=html;
+
+  new Swiper(".mySwiper",{
+    loop:true,
+    autoplay:{delay:4000},
+    pagination:{el:".swiper-pagination",clickable:true},
+    navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},
+    breakpoints:{320:{slidesPerView:2},768:{slidesPerView:3},1024:{slidesPerView:5}}
+  });
+}
+</script>
+
+<script src="https://www.kfc.marketing2advertising.com/feeds/posts/default/-/info?alt=json-in-script&callback=renderMovieSliderPosts"></script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"
+     crossorigin="anonymous"></script>
+<!-- Vertical New -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2269884583846743"
+     data-ad-slot="2906167922"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<!-- Movie Auto-Slider Grid -->
+<div class="movie-slider-wrapper">
+  <div id="movie-slider" class="movie-slider"></div>
+</div>
+
+<script type="text/javascript">
+  function renderMovieSlider(json) {
+    var postsHTML = '';
+    var maxPosts = 10;
+    for (var i = 0; i < Math.min(json.feed.entry.length, maxPosts); i++) {
+      var entry = json.feed.entry[i];
+      var title = entry.title.$t;
+      var url = '';
+      for (var j = 0; j < entry.link.length; j++) {
+        if (entry.link[j].rel === 'alternate') {
+          url = entry.link[j].href;
+          break;
+        }
+      }
+
+      var imgUrl = '';
+      if (entry.media$thumbnail) {
+        imgUrl = entry.media$thumbnail.url.replace('/s72-c/', '/s640/');
+      } else {
+        var content = entry.content.$t;
+        var imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
+        imgUrl = imgMatch && imgMatch[1] ? imgMatch[1] : 'https://via.placeholder.com/300x450?text=No+Image';
+      }
+
+      postsHTML += `
+        <div class="movie-card">
+          <a href="${url}" title="${title}" target="_blank" rel="noopener noreferrer">
+            <div class="poster">
+              <img src="${imgUrl}" alt="${title}">
+              <div class="play-button">&#9658;</div>
+            </div>
+            <div class="movie-title">${title}</div>
+          </a>
+        </div>
+      `;
+    }
+    document.getElementById('movie-slider').innerHTML = postsHTML;
+    startMovieSlider();
+  }
+
+  function startMovieSlider() {
+    const slider = document.querySelector('#movie-slider');
+    let scrollAmount = 0;
+    const slideStep = 1; // pixels per frame
+    const slideSpeed = 15; // lower = faster
+    const resetDelay = 2000;
+
+    function autoSlide() {
+      scrollAmount += slideStep;
+      if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+        scrollAmount = 0;
+        slider.scrollTo({ left: 0, behavior: 'auto' });
+        setTimeout(autoSlide, resetDelay);
+      } else {
+        slider.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+        setTimeout(autoSlide, slideSpeed);
+      }
+    }
+
+    autoSlide();
+  }
+</script>
+
+
+<!-- 🔍 SEARCH BOX -->
+<div class="search-bar-wrapper">
+  <input type="text" id="searchInput" placeholder="Search-Movies..." />
+  <button id="searchBtn">&#128269;</button>
+</div>
+
+<!-- 🔎 SEARCH RESULTS -->
+<div id="searchResults" class="search-results"></div>
+
+<style>
+/* ===== SEARCH BOX STYLE ===== */
+.search-bar-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-bar-wrapper input {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 50px;
+  border: 2px solid #fcff01;
+  background: #111;
+  color: #fff;
+  font-size: 18px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-bar-wrapper input:focus {
+  border-color: #e50914;
+  box-shadow: 0 0 10px #e50914;
+}
+
+.search-bar-wrapper button {
+  background: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.search-bar-wrapper button:hover {
+  transform: scale(1.1);
+  background: #b00610;
+}
+
+/* ===== SEARCH RESULTS ===== */
+.search-results {
+  max-width: 1000px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  color: #fff;
+}
+
+.result-card {
+  background: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease;
+}
+
+.result-card:hover {
+  transform: scale(1.05);
+}
+
+.result-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.result-title {
+  background: #e50914;
+  padding: 10px;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 15px;
+}
+</style>
+
+<script>
+// === BLOGGER SITE URL ===
+const BLOG_URL = "https://www.kfc.marketing2advertising.com/";
+
+/* --- Fetch Blogger Posts by Search Query --- */
+function searchPosts(query) {
+  if (!query) return;
+  const script = document.createElement("script");
+  script.src = `${BLOG_URL}/feeds/posts/default?alt=json-in-script&q=${encodeURIComponent(query)}&max-results=30&callback=showSearchResults`;
+  document.body.appendChild(script);
+}
+
+/* --- Render Search Results --- */
+function showSearchResults(json) {
+  const container = document.getElementById("searchResults");
+  container.innerHTML = "";
+
+  if (!json.feed || !json.feed.entry) {
+    container.innerHTML = `<p style="text-align:center;color:#aaa;">No results found.</p>`;
+    return;
+  }
+
+  let html = "";
+  json.feed.entry.forEach(entry => {
+    const title = entry.title.$t;
+    let url = "";
+    let img = "https://via.placeholder.com/300x450?text=No+Image";
+
+    // Post link
+    if (entry.link) {
+      entry.link.forEach(l => {
+        if (l.rel === "alternate") url = l.href;
+      });
+    }
+
+    // Thumbnail
+    if (entry.media$thumbnail) {
+      img = entry.media$thumbnail.url.replace("/s72-c/", "/s400/");
+    } else if (entry.content) {
+      const match = entry.content.$t.match(/<img[^>]+src="([^">]+)"/);
+      if (match) img = match[1];
+    }
+
+    html += `
+      <div class="result-card">
+        <a href="${url}" target="_blank" rel="noopener noreferrer">
+          <img src="${img}" alt="${title}">
+          <div class="result-title">${title}</div>
+        </a>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+
+/* --- Search Button Event --- */
+document.getElementById("searchBtn").addEventListener("click", () => {
+  const query = document.getElementById("searchInput").value.trim();
+  searchPosts(query);
+});
+
+/* --- Allow "Enter" Key to Search --- */
+document.getElementById("searchInput").addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    document.getElementById("searchBtn").click();
+  }
+});
+</script>
+
+ <!-- Movie Grid Section -->
+<div class="movie-grid-wrapper">
+  <h2 class="grid-title">What Would You Like to Watch?</h2>
+  <div id="movie-grid" class="movie-grid"></div>
+</div>
+
+<script type="text/javascript">
+  function renderMovieSlider(json) {
+    const postsContainer = document.getElementById('movie-grid');
+    let postsHTML = '';
+    const maxPosts = 50; // Show 50 posts in grid
+
+    for (let i = 0; i < Math.min(json.feed.entry.length, maxPosts); i++) {
+      const entry = json.feed.entry[i];
+      const title = entry.title.$t;
+
+      // Find post URL
+      let url = '';
+      for (let j = 0; j < entry.link.length; j++) {
+        if (entry.link[j].rel === 'alternate') {
+          url = entry.link[j].href;
+          break;
+        }
+      }
+
+      // Find image
+      let imgUrl = '';
+      if (entry.media$thumbnail) {
+        imgUrl = entry.media$thumbnail.url.replace('/s72-c/', '/s640/');
+      } else if (entry.content) {
+        const content = entry.content.$t;
+        const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
+        imgUrl = imgMatch && imgMatch[1] ? imgMatch[1] : 'https://via.placeholder.com/300x450?text=No+Image';
+      } else {
+        imgUrl = 'https://via.placeholder.com/300x450?text=No+Image';
+      }
+
+      postsHTML += `
+        <div class="movie-card">
+          <a href="${url}" title="${title}" target="_blank" rel="noopener noreferrer">
+            <div class="poster">
+              <img src="${imgUrl}" alt="${title}">
+              <div class="play-button">&#9658;</div>
+            </div>
+            <div class="movie-title">${title}</div>
+          </a>
+        </div>
+      `;
+    }
+
+    postsContainer.innerHTML = postsHTML;
+  }
+</script>
+
+<!-- Blogger JSON Feed (label: movies1000) -->
+<script src="https://www.kfc.marketing2advertising.com/feeds/posts/default/-/movies1000?alt=json-in-script&callback=renderMovieSlider&max-results=1000"></script>
+
+<style>
+  .movie-grid-wrapper {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    color: #fff;
+  }
+
+  .grid-title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 25px;
+    color: #fcff01;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+  }
+
+  .movie-card {
+    background: #111;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .movie-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(229, 9, 20, 0.7);
+  }
+
+  .poster {
+    position: relative;
+    aspect-ratio: 2/3;
+    overflow: hidden;
+  }
+
+  .movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .movie-card:hover img {
+    filter: brightness(0.6);
+    transform: scale(1.1);
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 45px;
+    color: white;
+    background: rgba(229, 9, 20, 0.9);
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    text-align: center;
+    line-height: 65px;
+    box-shadow: 0 0 20px #e50914;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .movie-card:hover .play-button {
+    opacity: 1;
+  }
+
+  .movie-title {
+    text-align: center;
+    background: #e50914;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: capitalize;
+    height: 55px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .movie-grid {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 15px;
+    }
+
+    .movie-title {
+      font-size: 13px;
+      padding: 8px;
+    }
+
+    .play-button {
+      width: 50px;
+      height: 50px;
+      font-size: 35px;
+      line-height: 50px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .grid-title {
+      font-size: 20px;
+    }
+    .movie-grid {
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+    }
+  }
+</style>
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"
+     crossorigin="anonymous"></script>
+<!-- Vertical New -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2269884583846743"
+     data-ad-slot="2906167922"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer" style="text-align:center;background:#111;padding:20px;margin-top:40px">
+  <a href="https://www.marketing2advertising.com/contact-us.html">Contact</a> |
+  <a href="https://www.marketing2advertising.com/privacy-policy">Privacy</a> |
+  <a href="https://www.marketing2advertising.com/p/affiliate-marketing-and-adsense.html">Disclosure</a> |
+  <a href="https://www.marketing2advertising.com/terms-and-conditions">Terms</a>
+  <p style="color:#aaa">© 2025 Marketing2advertising</p>
+</footer>
+
+</body>
+</html>
