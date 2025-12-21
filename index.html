@@ -280,6 +280,8 @@ body{
 }
 </style>
 
+
+
 <!-- ===================== MENU ===================== -->
 <nav class="menu-bar">
   <a class="menu-home" href="/">Home</a>
@@ -290,112 +292,128 @@ body{
   <a class="menu-jobs" href="https://www.marketing2advertising.com/2015/12/job-matching-across-ireland-singapore.html">Jobs</a>
 </nav>
 
-<!-- ===================== MEMORY CARD GAME ===================== -->
-<div class="spin-lotto-wrapper" style="margin-top:50px;">
-  <h2>🃏 Memory Card Game</h2>
-  <div id="memoryBalance" style="margin-bottom:10px;">Points: 0</div>
-  <div id="memoryContainer" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(100px, 1fr)); gap:15px; justify-items:center;"></div>
-  <div id="memoryResult" style="text-align:center; color:#ffdd57; font-size:18px; min-height:24px; margin-top:10px;"></div>
-  <div style="text-align:center; margin-top:10px;">
-    <button id="memoryResetBtn" style="padding:10px 20px; font-size:16px; background:#1dd1a1; color:#fff; border:none; border-radius:8px; cursor:pointer;">Restart Game</button>
+<!-- ===================== SPIN & LOTTO GAME ===================== -->
+<div class="spin-lotto-wrapper">
+  <h2>🎡 Spin the Wheel Fun Lotto Game🎟️</h2>
+  <div id="balance">Points: 0</div>
+  <div id="wheel-container">
+    <div id="pointer"></div>
+    <div id="wheel">
+      <span>💰 🎁 ⭐ 🎟️ 💎 🎉</span>
+    </div>
   </div>
-</div>
+  <div style="text-align:center;">
+    <button id="spin-btn">Spin the Wheel</button>
+  </div>
+  <div id="spinResult"></div>
+  <div style="text-align:center;">
 
-<style>
-  .memory-card {
-    width: 100px;
-    height: 140px;
-    background: linear-gradient(135deg,#ff6b6b,#feca57);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    user-select: none;
-    position: relative;
-  }
-  .memory-card.flipped, .memory-card.matched {
-    background: #fff;
-    color: #111;
-    transform: rotateY(180deg);
-  }
-  .memory-card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(255,255,255,0.6);
-  }
-  @media(max-width:480px){
-    .memory-card { width:70px; height:100px; font-size:36px; }
-  }
-</style>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"
+     crossorigin="anonymous"></script>
+<!-- Vertical New -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2269884583846743"
+     data-ad-slot="2906167922"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 <script>
-const memoryContainer = document.getElementById('memoryContainer');
-const memoryResult = document.getElementById('memoryResult');
-const memoryBalanceEl = document.getElementById('memoryBalance');
-let memoryPoints = 0;
-
-const memoryIcons = ["⭐","🎬","🍿","🎥","💎","🎁","🎯","🎸"];
-let memoryCards = [];
-let memoryFlipped = [];
-let memoryMatched = 0;
-
-function initMemoryGame() {
-    memoryContainer.innerHTML = '';
-    memoryCards = memoryIcons.concat(memoryIcons);
-    memoryCards.sort(()=>Math.random()-0.5);
-    memoryFlipped = [];
-    memoryMatched = 0;
-    memoryResult.textContent = '';
-    memoryCards.forEach(icon => {
-        const card = document.createElement('div');
-        card.classList.add('memory-card');
-        card.textContent = "?";
-        card.dataset.icon = icon;
-        card.addEventListener('click', ()=>flipMemoryCard(card));
-        memoryContainer.appendChild(card);
-    });
-}
-
-function flipMemoryCard(card){
-    if(memoryFlipped.length < 2 && !memoryFlipped.includes(card) && !card.classList.contains('matched')){
-        card.textContent = card.dataset.icon;
-        card.classList.add('flipped');
-        memoryFlipped.push(card);
-        if(memoryFlipped.length === 2){ setTimeout(checkMemoryMatch, 700); }
-    }
-}
-
-function checkMemoryMatch(){
-    const [card1, card2] = memoryFlipped;
-    if(card1.dataset.icon === card2.dataset.icon){
-        card1.classList.add('matched');
-        card2.classList.add('matched');
-        memoryPoints++;
-        memoryBalanceEl.textContent = `Points: ${memoryPoints}`;
-        memoryResult.textContent = "✅ Match! +1 point";
-        memoryMatched += 2;
-        if(memoryMatched === memoryCards.length){
-            memoryResult.textContent = "🎉 All Matched! +Bonus 5 points";
-            memoryPoints += 5;
-            memoryBalanceEl.textContent = `Points: ${memoryPoints}`;
-        }
-    } else {
-        card1.textContent = "?";
-        card2.textContent = "?";
-        card1.classList.remove('flipped');
-        card2.classList.remove('flipped');
-        memoryResult.textContent = "❌ Try Again";
-    }
-    memoryFlipped = [];
-}
-
-document.getElementById('memoryResetBtn').addEventListener('click', ()=>initMemoryGame());
-
-initMemoryGame();
+     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
+    <button id="generateBtn">Generate Lotto Numbers</button>
+  </div>
+  <div id="ticketsContainer"></div>
+  <div id="resultMessage"></div>
+</div>
+
+<script>
+let balance = 0;
+const balanceEl = document.getElementById('balance');
+const wheel = document.getElementById('wheel');
+const spinBtn = document.getElementById('spin-btn');
+const spinResult = document.getElementById('spinResult');
+const wheelPrizes = ["1","❌","2","❌","3","5"];
+let deg = 0;
+
+spinBtn.addEventListener('click',()=>{
+  spinBtn.disabled=true;
+  spinResult.textContent="";
+  const extraDeg=Math.floor(Math.random()*360);
+  const spins=Math.floor(Math.random()*3)+3;
+  deg+=spins*360+extraDeg;
+  wheel.style.transform=`rotate(${deg}deg)`;
+  setTimeout(()=>{
+    const actualDeg=deg%360;
+    const prizeIndex=Math.floor((360-actualDeg)/60)%wheelPrizes.length;
+    const prize=wheelPrizes[prizeIndex];
+    spinResult.textContent=`Wheel Result: ${prize}`;
+    let pointsToAdd=0;
+    if(prize==="1") pointsToAdd=1;
+    else if(prize==="2") pointsToAdd=2;
+    else if(prize==="3") pointsToAdd=3;
+    else if(prize==="5") pointsToAdd=5;
+
+    let added=0;
+    const interval=setInterval(()=>{
+      if(added<pointsToAdd){
+        balance++;
+        balanceEl.textContent=`Points: ${balance}`;
+        added++;
+      } else clearInterval(interval);
+    },300);
+    spinBtn.disabled=false;
+  },4000);
+});
+
+const generateBtn=document.getElementById('generateBtn');
+const ticketsContainer=document.getElementById('ticketsContainer');
+const resultMessage=document.getElementById('resultMessage');
+
+function generateLottoNumbers(count=6,max=49){
+  const nums=new Set();
+  while(nums.size<count){
+    nums.add(Math.floor(Math.random()*max)+1);
+  }
+  return Array.from(nums).sort((a,b)=>a-b);
+}
+
+function animateNumbers(divs,numbers){
+  let i=0;
+  const interval=setInterval(()=>{
+    divs[i].textContent=Math.floor(Math.random()*49+1);
+    divs[i].style.transform=`scale(1.3)`;
+    setTimeout(()=>divs[i].style.transform=`scale(1)`,200);
+    i++;
+    if(i>=divs.length){
+      clearInterval(interval);
+      numbers.forEach((num,index)=>divs[index].textContent=num);
+    }
+  },100);
+}
+
+generateBtn.addEventListener('click',()=>{
+  if(balance<=0){ alert("You need points! Spin the wheel first."); return; }
+  balance--; balanceEl.textContent=`Points: ${balance}`;
+  ticketsContainer.innerHTML='';
+  resultMessage.textContent='';
+  const ticketNumbers=generateLottoNumbers();
+  const ticketDiv=document.createElement('div');
+  ticketDiv.classList.add('ticket');
+  const numberDivs=[];
+  ticketNumbers.forEach(num=>{
+    const div=document.createElement('div');
+    div.classList.add('number');
+    div.textContent='?';
+    ticketDiv.appendChild(div);
+    numberDivs.push(div);
+  });
+  ticketsContainer.appendChild(ticketDiv);
+  animateNumbers(numberDivs,ticketNumbers);
+  if(ticketNumbers.includes(49)) resultMessage.textContent="🎉 Jackpot Hit!";
+});
+</script>
 
 <!-- 🔍 SEARCH BOX -->
 <div class="search-bar-wrapper">
@@ -767,127 +785,111 @@ document.getElementById("searchInput").addEventListener("keypress", (e) => {
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-<!-- ===================== SPIN & LOTTO GAME ===================== -->
-<div class="spin-lotto-wrapper">
-  <h2>🎡 Spin the Wheel Fun Lotto Game🎟️</h2>
-  <div id="balance">Points: 0</div>
-  <div id="wheel-container">
-    <div id="pointer"></div>
-    <div id="wheel">
-      <span>💰 🎁 ⭐ 🎟️ 💎 🎉</span>
-    </div>
-  </div>
-  <div style="text-align:center;">
-    <button id="spin-btn">Spin the Wheel</button>
-  </div>
-  <div id="spinResult"></div>
-  <div style="text-align:center;">
 
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"
-     crossorigin="anonymous"></script>
-<!-- Vertical New -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2269884583846743"
-     data-ad-slot="2906167922"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-    <button id="generateBtn">Generate Lotto Numbers</button>
+<!-- ===================== MEMORY CARD GAME ===================== -->
+<div class="spin-lotto-wrapper" style="margin-top:50px;">
+  <h2>🃏 Memory Card Game</h2>
+  <div id="memoryBalance" style="margin-bottom:10px;">Points: 0</div>
+  <div id="memoryContainer" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(100px, 1fr)); gap:15px; justify-items:center;"></div>
+  <div id="memoryResult" style="text-align:center; color:#ffdd57; font-size:18px; min-height:24px; margin-top:10px;"></div>
+  <div style="text-align:center; margin-top:10px;">
+    <button id="memoryResetBtn" style="padding:10px 20px; font-size:16px; background:#1dd1a1; color:#fff; border:none; border-radius:8px; cursor:pointer;">Restart Game</button>
   </div>
-  <div id="ticketsContainer"></div>
-  <div id="resultMessage"></div>
 </div>
 
-<script>
-let balance = 0;
-const balanceEl = document.getElementById('balance');
-const wheel = document.getElementById('wheel');
-const spinBtn = document.getElementById('spin-btn');
-const spinResult = document.getElementById('spinResult');
-const wheelPrizes = ["1","❌","2","❌","3","5"];
-let deg = 0;
-
-spinBtn.addEventListener('click',()=>{
-  spinBtn.disabled=true;
-  spinResult.textContent="";
-  const extraDeg=Math.floor(Math.random()*360);
-  const spins=Math.floor(Math.random()*3)+3;
-  deg+=spins*360+extraDeg;
-  wheel.style.transform=`rotate(${deg}deg)`;
-  setTimeout(()=>{
-    const actualDeg=deg%360;
-    const prizeIndex=Math.floor((360-actualDeg)/60)%wheelPrizes.length;
-    const prize=wheelPrizes[prizeIndex];
-    spinResult.textContent=`Wheel Result: ${prize}`;
-    let pointsToAdd=0;
-    if(prize==="1") pointsToAdd=1;
-    else if(prize==="2") pointsToAdd=2;
-    else if(prize==="3") pointsToAdd=3;
-    else if(prize==="5") pointsToAdd=5;
-
-    let added=0;
-    const interval=setInterval(()=>{
-      if(added<pointsToAdd){
-        balance++;
-        balanceEl.textContent=`Points: ${balance}`;
-        added++;
-      } else clearInterval(interval);
-    },300);
-    spinBtn.disabled=false;
-  },4000);
-});
-
-const generateBtn=document.getElementById('generateBtn');
-const ticketsContainer=document.getElementById('ticketsContainer');
-const resultMessage=document.getElementById('resultMessage');
-
-function generateLottoNumbers(count=6,max=49){
-  const nums=new Set();
-  while(nums.size<count){
-    nums.add(Math.floor(Math.random()*max)+1);
+<style>
+  .memory-card {
+    width: 100px;
+    height: 140px;
+    background: linear-gradient(135deg,#ff6b6b,#feca57);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    user-select: none;
+    position: relative;
   }
-  return Array.from(nums).sort((a,b)=>a-b);
+  .memory-card.flipped, .memory-card.matched {
+    background: #fff;
+    color: #111;
+    transform: rotateY(180deg);
+  }
+  .memory-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255,255,255,0.6);
+  }
+  @media(max-width:480px){
+    .memory-card { width:70px; height:100px; font-size:36px; }
+  }
+</style>
+
+<script>
+const memoryContainer = document.getElementById('memoryContainer');
+const memoryResult = document.getElementById('memoryResult');
+const memoryBalanceEl = document.getElementById('memoryBalance');
+let memoryPoints = 0;
+
+const memoryIcons = ["⭐","🎬","🍿","🎥","💎","🎁","🎯","🎸"];
+let memoryCards = [];
+let memoryFlipped = [];
+let memoryMatched = 0;
+
+function initMemoryGame() {
+    memoryContainer.innerHTML = '';
+    memoryCards = memoryIcons.concat(memoryIcons);
+    memoryCards.sort(()=>Math.random()-0.5);
+    memoryFlipped = [];
+    memoryMatched = 0;
+    memoryResult.textContent = '';
+    memoryCards.forEach(icon => {
+        const card = document.createElement('div');
+        card.classList.add('memory-card');
+        card.textContent = "?";
+        card.dataset.icon = icon;
+        card.addEventListener('click', ()=>flipMemoryCard(card));
+        memoryContainer.appendChild(card);
+    });
 }
 
-function animateNumbers(divs,numbers){
-  let i=0;
-  const interval=setInterval(()=>{
-    divs[i].textContent=Math.floor(Math.random()*49+1);
-    divs[i].style.transform=`scale(1.3)`;
-    setTimeout(()=>divs[i].style.transform=`scale(1)`,200);
-    i++;
-    if(i>=divs.length){
-      clearInterval(interval);
-      numbers.forEach((num,index)=>divs[index].textContent=num);
+function flipMemoryCard(card){
+    if(memoryFlipped.length < 2 && !memoryFlipped.includes(card) && !card.classList.contains('matched')){
+        card.textContent = card.dataset.icon;
+        card.classList.add('flipped');
+        memoryFlipped.push(card);
+        if(memoryFlipped.length === 2){ setTimeout(checkMemoryMatch, 700); }
     }
-  },100);
 }
 
-generateBtn.addEventListener('click',()=>{
-  if(balance<=0){ alert("You need points! Spin the wheel first."); return; }
-  balance--; balanceEl.textContent=`Points: ${balance}`;
-  ticketsContainer.innerHTML='';
-  resultMessage.textContent='';
-  const ticketNumbers=generateLottoNumbers();
-  const ticketDiv=document.createElement('div');
-  ticketDiv.classList.add('ticket');
-  const numberDivs=[];
-  ticketNumbers.forEach(num=>{
-    const div=document.createElement('div');
-    div.classList.add('number');
-    div.textContent='?';
-    ticketDiv.appendChild(div);
-    numberDivs.push(div);
-  });
-  ticketsContainer.appendChild(ticketDiv);
-  animateNumbers(numberDivs,ticketNumbers);
-  if(ticketNumbers.includes(49)) resultMessage.textContent="🎉 Jackpot Hit!";
-});
+function checkMemoryMatch(){
+    const [card1, card2] = memoryFlipped;
+    if(card1.dataset.icon === card2.dataset.icon){
+        card1.classList.add('matched');
+        card2.classList.add('matched');
+        memoryPoints++;
+        memoryBalanceEl.textContent = `Points: ${memoryPoints}`;
+        memoryResult.textContent = "✅ Match! +1 point";
+        memoryMatched += 2;
+        if(memoryMatched === memoryCards.length){
+            memoryResult.textContent = "🎉 All Matched! +Bonus 5 points";
+            memoryPoints += 5;
+            memoryBalanceEl.textContent = `Points: ${memoryPoints}`;
+        }
+    } else {
+        card1.textContent = "?";
+        card2.textContent = "?";
+        card1.classList.remove('flipped');
+        card2.classList.remove('flipped');
+        memoryResult.textContent = "❌ Try Again";
+    }
+    memoryFlipped = [];
+}
+
+document.getElementById('memoryResetBtn').addEventListener('click', ()=>initMemoryGame());
+
+initMemoryGame();
 </script>
 
 
