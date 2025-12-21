@@ -312,14 +312,14 @@ body, html {
   width: 100%;
   max-width: 1200px;
   margin: 50px auto;
-  height: 750px;
+  height: 980px;
   border-radius: 12px;
   overflow: hidden; /* disables scrolling inside container */
 }
 
 iframe {
   width: 100%;
-  height: 750px;
+  height: 980px;
   border: none;
   border-radius: 12px;
   pointer-events: auto; /* ensure iframe is interactive */
@@ -470,12 +470,12 @@ videoPlayer.addEventListener('fullscreenchange', function() {
   
 </div>
 
-<!-- ===================== SEARCH BOX ===================== -->
-<div class="search-bar-wrapper">
-  <input type="text" id="searchInput" placeholder="Search Movies...">
-  <button id="searchBtn">&#128269;</button>
+
+<!-- ===================== MOVIE GRID ===================== -->
+<div class="movie-grid-wrapper">
+  <h2 class="grid-title">What Would You Like to Watch?</h2>
+  <div id="movie-grid" class="movie-grid"></div>
 </div>
-<div id="searchResults" class="search-results"></div>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"
      crossorigin="anonymous"></script>
@@ -596,11 +596,23 @@ document.getElementById('memoryResetBtn').addEventListener('click', ()=>initMemo
 initMemoryGame();
 </script>
 
-<!-- ===================== MOVIE GRID ===================== -->
-<div class="movie-grid-wrapper">
-  <h2 class="grid-title">What Would You Like to Watch?</h2>
-  <div id="movie-grid" class="movie-grid"></div>
+
+<!-- ===================== MENU ===================== -->
+<nav class="menu-bar">
+  <a class="menu-home" href="/">Home</a>
+  <a class="menu-movies" href="https://www.marketing2advertising.com/search/label/movies1000.html">Movies</a>
+  <a class="menu-blogs" href="https://www.marketing2advertising.com/search/blogs.html">Blogs</a>
+  <a class="menu-about" href="https://www.marketing2advertising.com/p/about-us.html">About</a>
+  <a class="menu-contact" href="https://www.marketing2advertising.com/p/contact-us.html">Contact</a>
+  <a class="menu-jobs" href="https://www.marketing2advertising.com/2015/12/job-matching-across-ireland-singapore.html">Jobs</a>
+</nav>
+
+<!-- ===================== SEARCH BOX ===================== -->
+<div class="search-bar-wrapper">
+  <input type="text" id="searchInput" placeholder="Search Movies...">
+  <button id="searchBtn">&#128269;</button>
 </div>
+<div id="searchResults" class="search-results"></div>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"
      crossorigin="anonymous"></script>
@@ -614,17 +626,6 @@ initMemoryGame();
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
-<!-- ===================== MENU ===================== -->
-<nav class="menu-bar">
-  <a class="menu-home" href="/">Home</a>
-  <a class="menu-movies" href="https://www.marketing2advertising.com/search/label/movies1000.html">Movies</a>
-  <a class="menu-blogs" href="https://www.marketing2advertising.com/search/blogs.html">Blogs</a>
-  <a class="menu-about" href="https://www.marketing2advertising.com/p/about-us.html">About</a>
-  <a class="menu-contact" href="https://www.marketing2advertising.com/p/contact-us.html">Contact</a>
-  <a class="menu-jobs" href="https://www.marketing2advertising.com/2015/12/job-matching-across-ireland-singapore.html">Jobs</a>
-</nav>
-
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="footer">
