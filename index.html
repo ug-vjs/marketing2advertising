@@ -616,13 +616,13 @@ document.getElementById("searchInput").addEventListener("keypress", (e) => {
   function renderMovieSlider(json) {
     const postsContainer = document.getElementById('movie-grid');
     let postsHTML = '';
-    const maxPosts = 50; // Show 50 posts in grid
 
-    for (let i = 0; i < Math.min(json.feed.entry.length, maxPosts); i++) {
-      const entry = json.feed.entry[i];
+    if (!json.feed || !json.feed.entry) return;
+
+    json.feed.entry.forEach(entry => {
       const title = entry.title.$t;
 
-      // Find post URL
+      // Post URL
       let url = '';
       for (let j = 0; j < entry.link.length; j++) {
         if (entry.link[j].rel === 'alternate') {
@@ -631,16 +631,13 @@ document.getElementById("searchInput").addEventListener("keypress", (e) => {
         }
       }
 
-      // Find image
-      let imgUrl = '';
+      // Image
+      let imgUrl = 'https://via.placeholder.com/300x450?text=No+Image';
       if (entry.media$thumbnail) {
         imgUrl = entry.media$thumbnail.url.replace('/s72-c/', '/s640/');
       } else if (entry.content) {
-        const content = entry.content.$t;
-        const imgMatch = content.match(/<img[^>]+src="([^">]+)"/);
-        imgUrl = imgMatch && imgMatch[1] ? imgMatch[1] : 'https://via.placeholder.com/300x450?text=No+Image';
-      } else {
-        imgUrl = 'https://via.placeholder.com/300x450?text=No+Image';
+        const imgMatch = entry.content.$t.match(/<img[^>]+src="([^">]+)"/);
+        if (imgMatch && imgMatch[1]) imgUrl = imgMatch[1];
       }
 
       postsHTML += `
@@ -654,14 +651,20 @@ document.getElementById("searchInput").addEventListener("keypress", (e) => {
           </a>
         </div>
       `;
-    }
+    });
 
-    postsContainer.innerHTML = postsHTML;
+    // Append posts instead of replacing
+    postsContainer.innerHTML += postsHTML;
   }
 </script>
 
-<!-- Blogger JSON Feed (label: movies1000) -->
+<!-- Blogger JSON Feeds -->
 <script src="https://kfc.marketing2advertising.com/feeds/posts/default/-/movies1000?alt=json-in-script&callback=renderMovieSlider&max-results=1000"></script>
+<script src="https://kfc.marketing2advertising.com/feeds/posts/default/-/latestmovies?alt=json-in-script&callback=renderMovieSlider&max-results=1000"></script>
+<script src="https://kfc.marketing2advertising.com/feeds/posts/default/-/shop?alt=json-in-script&callback=renderMovieSlider&max-results=1000"></script>
+<script src="https://kfc.marketing2advertising.com/feeds/posts/default/-/info?alt=json-in-script&callback=renderMovieSlider&max-results=1000"></script>
+
+
 
 <style>
   .movie-grid-wrapper {
@@ -911,10 +914,10 @@ initMemoryGame();
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="footer" style="text-align:center;background:#111;padding:20px;margin-top:40px">
-  <a href="https://www.marketing2advertising.com/contact-us.html">Contact</a> |
-  <a href="https://www.marketing2advertising.com/privacy-policy">Privacy</a> |
+  <a href="https://www.marketing2advertising.com/p/contact-us.html">Contact</a> |
+  <a href="https://www.marketing2advertising.com/p/privacy-policy">Privacy</a> |
   <a href="https://www.marketing2advertising.com/p/affiliate-marketing-and-adsense.html">Disclosure</a> |
-  <a href="https://www.marketing2advertising.com/terms-and-conditions">Terms</a>
+  <a href="https://www.marketing2advertising.com/p/terms-and-conditions">Terms</a>
   <p style="color:#aaa">© 2025 Marketing2advertising</p>
 </footer>
 </body>
