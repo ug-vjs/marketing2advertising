@@ -671,5 +671,18 @@ setTimeout(() => {
 }, 20000); // Wait for the first 20 seconds (7 + 13) to complete
 </script>
 
+<script>
+const modeToggle = document.getElementById('modeToggle');
+modeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode'); // Toggle light mode
+    if (document.body.classList.contains('light-mode')) {
+        modeToggle.textContent = 'DARK MODE'; // Change button text
+    } else {
+        modeToggle.textContent = 'LIGHT MODE';
+    }
+});
+</script>
+
+     
 </body>
 </html>
