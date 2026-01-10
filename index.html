@@ -2,6 +2,134 @@
 <html lang="en">
 <head>
 
+     <!-- Overlay container -->
+<div id='ad-overlay' style='display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.75); z-index:999999; justify-content:center; align-items:center;'>
+    <div style='position:absolute; top:20px; right:20px; text-align:right;'>
+        <div id='countdown' style='color:white; font-size:22px; font-weight:bold; margin-bottom:8px;'/>
+        <button id='close-ad' style='display:none; background:#fff; border:none; font-size:20px; padding:6px 12px; cursor:pointer; border-radius:4px; font-weight:bold;'>Skip</button>
+    </div>
+    <div id='ad-wrapper' style='display:flex; justify-content:center; align-items:center; width:100%; height:100%; text-align:center;'/>
+</div>
+
+<script type='text/javascript'>
+var isPostPage = &#39;<data:blog.pageType/>&#39; == &#39;item&#39;;
+var isStaticPage = &#39;<data:blog.pageType/>&#39; == &#39;static_page&#39;;
+
+if (isPostPage || isStaticPage) {
+    /* ------------------------------------ ONCE PER VISIT (sessionStorage) ------------------------------------- */
+    if (sessionStorage.getItem(&#39;overlayAdShown&#39;)) {
+        // Do nothing &#8212; ad already shown this visit
+    } else {
+        sessionStorage.setItem(&#39;overlayAdShown&#39;,&#39;1&#39;);
+
+        /* ------------------------------------ 5 rotating ads ------------------------------------- */
+        const ads = [
+            { client:&quot;ca-pub-2269884583846743&quot;, slot:&quot;2359999321&quot;, width:300, height:250 },
+            { client:&quot;ca-pub-2269884583846743&quot;, slot:&quot;4256856469&quot;, width:250, height:250 },
+            { client:&quot;ca-pub-2269884583846743&quot;, slot:&quot;2038317814&quot;, width:300, height:600 },
+            { client:&quot;ca-pub-2269884583846743&quot;, slot:&quot;8811425590&quot;, width:320, height:100 },
+            { client:&quot;ca-pub-2269884583846743&quot;, slot:&quot;5610977415&quot;, width:336, height:280 }
+        ];
+
+        let currentAdIndex = 0;
+        let skipClicked = false; // Flag to track if the &quot;Skip&quot; button was clicked
+
+        /* Show ad overlay with variable countdown */
+        function showAdOverlay(customSeconds = 8) {
+            const overlay = document.getElementById(&quot;ad-overlay&quot;);
+            const countdownEl = document.getElementById(&quot;countdown&quot;);
+            const closeBtn = document.getElementById(&quot;close-ad&quot;);
+            const adWrapper = document.getElementById(&quot;ad-wrapper&quot;);
+
+            overlay.style.display = &quot;flex&quot;;
+            closeBtn.style.display = &quot;none&quot;; // Initially hide the button
+            adWrapper.innerHTML = &quot;&quot;;
+
+            /* Load ad */
+            const ad = ads[currentAdIndex];
+            const ins = document.createElement(&quot;ins&quot;);
+            ins.className = &quot;adsbygoogle&quot;;
+            ins.style.display = &quot;inline-block&quot;;
+            ins.style.width = ad.width + &quot;px&quot;;
+            ins.style.height = ad.height + &quot;px&quot;;
+            ins.setAttribute(&quot;data-ad-client&quot;, ad.client);
+            ins.setAttribute(&quot;data-ad-slot&quot;, ad.slot);
+            adWrapper.appendChild(ins);
+            (adsbygoogle = window.adsbygoogle || []).push({});
+
+            /* Prepare next rotation */
+            currentAdIndex = (currentAdIndex + 1) % ads.length;
+
+            /* Countdown logic */
+            let timeLeft = customSeconds;
+            countdownEl.textContent = &quot;Close available in: &quot; + timeLeft;
+            const timer = setInterval(function() {
+                timeLeft--;
+                countdownEl.textContent = &quot;Close available in: &quot; + timeLeft;
+                if (timeLeft === 0) {
+                    closeBtn.style.display = &quot;inline-block&quot;; // Show the button after countdown finishes
+                    closeBtn.textContent = &quot;X&quot;; // Change button to &quot;X&quot; after countdown
+                    clearInterval(timer);
+                    // Auto close after 10 seconds if button is not clicked
+                    setTimeout(() =&gt; {
+                        if (overlay.style.display === &quot;flex&quot;) {
+                            overlay.style.display = &quot;none&quot;; // Close the ad overlay
+                        }
+                    }, 10000);
+                }
+            }, 1000); // 1-second interval for countdown
+
+            /* Close button behavior */
+            closeBtn.onclick = function() {
+                overlay.style.display = &quot;none&quot;; // Close the ad overlay
+            };
+        }
+
+        /* -------------------------------------------- SPECIAL RULE: First opening = 2 ads with delay --------------------------------------------- */
+        function runInitialTwoAds() {
+            // Ad 1 = 7 seconds
+            showAdOverlay(7); // Ad 1 displays for 7 seconds
+            // After 7 seconds, show the Skip button
+            setTimeout(() =&gt; {
+                const closeBtn = document.getElementById(&quot;close-ad&quot;);
+                closeBtn.style.display = &quot;inline-block&quot;; // Show &quot;Skip&quot; button
+                closeBtn.textContent = &quot;Skip&quot;; // Set button text to &quot;Skip&quot;
+            }, 7000); // Show Skip button after 7 seconds
+
+            // Check if &quot;Skip&quot; button is clicked before transitioning to Ad 2
+            const closeBtn = document.getElementById(&quot;close-ad&quot;);
+            closeBtn.onclick = function() {
+                skipClicked = true; // Mark that &quot;Skip&quot; was clicked
+                showAdOverlay(8); // Show Ad 2 immediately (for 8 seconds)
+                closeBtn.style.display = &quot;none&quot;; // Hide the skip button
+            };
+
+            // If &quot;Skip&quot; button isn&#39;t clicked, Ad 2 will show after 13 more seconds (20 seconds total)
+            setTimeout(() =&gt; {
+                if (!skipClicked) {
+                    showAdOverlay(8); // Ad 2 shows for 8 seconds after the delay
+                }
+            }, 20000); // Trigger after 20 seconds (7 seconds for Ad 1 + 13 seconds wait)
+        }
+
+        /* -------------------------------------------- Start full schedule AFTER first 20 seconds --------------------------------------------- */
+        setTimeout(() =&gt; {
+            runInitialTwoAds(); // Display first two ads
+            // 1) 40 seconds
+            setTimeout(showAdOverlay, 40000);
+            // 2) 90 seconds
+            setTimeout(showAdOverlay, 90000);
+            // 3) 150 seconds
+            setTimeout(showAdOverlay, 150000);
+            // 4) 270 seconds
+            setTimeout(showAdOverlay, 270000);
+            // 5) Every 570 seconds
+            setInterval(showAdOverlay, 570000);
+        }, 40000); // Wait for 40 seconds before starting
+    }
+}
+</script>
+         
 <meta name="yandex-verification" content="6a47cd906f39b9c6" />
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"
      crossorigin="anonymous"></script>
