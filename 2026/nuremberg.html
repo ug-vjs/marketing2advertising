@@ -481,13 +481,6 @@ videoPlayer.addEventListener('fullscreenchange', function() {
   
 </div>
 
-
-<!-- ===================== MOVIE GRID ===================== -->
-<div class="movie-grid-wrapper">
-  <h2 class="grid-title">What Would You Like to Watch?</h2>
-  <div id="movie-grid" class="movie-grid"></div>
-</div>
-
 <!-- ===================== SEARCH BOX ===================== -->
 <div class="search-bar-wrapper">
   <input type="text" id="searchInput" placeholder="Search Movies...">
@@ -507,6 +500,50 @@ videoPlayer.addEventListener('fullscreenchange', function() {
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #000000;
+  text-align: center;
+}
+
+.video-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto;
+  height: 950px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+iframe {
+  width: 100%;
+  height: 950px;
+  border: none;
+  border-radius: 12px;
+  display: block;
+  pointer-events: auto;
+}
+</style>
+
+<div class="video-container">
+  <iframe
+    src="https://www.marketing2advertising.com/2026/p/lottocham.html"
+    scrolling="no"
+    allowfullscreen>
+  </iframe>
+</div>
+
+<!-- ===================== MOVIE GRID ===================== -->
+<div class="movie-grid-wrapper">
+  <h2 class="grid-title">What Would You Like to Watch?</h2>
+  <div id="movie-grid" class="movie-grid"></div>
+</div>
+
 
 <!-- ===================== MEMORY CARD GAME ===================== -->
 <div class="spin-lotto-wrapper" style="margin-top:50px;">
@@ -748,6 +785,16 @@ script.src=`${BLOG_URL}/feeds/posts/default/-/movies1000?alt=json-in-script&call
 document.body.appendChild(script);
 </script>
 
+<!-- Scroll to Top Gadget --> 
+<div id="scrollToTopGadget"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(() => {
+    window.scrollTo(0, 0); // Scroll to the top after 3 seconds
+  }, 3000); // 3 seconds = 3,000 milliseconds
+});
+</script>
 
 </body>
 </html>
