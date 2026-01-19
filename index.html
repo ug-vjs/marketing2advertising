@@ -377,14 +377,43 @@ body.light-mode .movie-title { background: #007700; color: #fff; }
 
 #modeToggle:hover { background: #ffdc00; }
 </style>
+
+<style>
+/* ===== DESKTOP TOGGLE (INLINE, MOBILE ONLY) ===== */
+#desktopToggle{
+  display:inline-block;
+  background:#00ffcc;
+  color:#000;
+  border:none;
+  padding:8px 14px;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:14px;
+}
+#desktopToggle.active{
+  background:#ff0044;
+  color:#fff;
+}
+/* Hide on desktop */
+@media (min-width: 992px){
+  #desktopToggle{display:none!important}
+}
+</style>
 </head>
 
 <body>
 
+
 <!-- ===================== HEADER ===================== -->
 <header>
   <div class="header-inner">
-    <div class="logo">Marketing2Advertising</div>
+    <div class="logo">
+<!-- ✅ INLINE DESKTOP / MOBILE TOGGLE (CORRECT PLACE) -->
+<button id="desktopToggle">SHOW FULL SCREEN</button>
+
+
+</div>
     <div>☰</div>
   </div>
 </header>
@@ -767,6 +796,43 @@ document.addEventListener("DOMContentLoaded", function() {
      data-full-width-responsive="true"></ins>
 <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const btn = document.getElementById("desktopToggle");
+  if(!btn) return;
+
+  if(window.innerWidth >= 992){
+    btn.style.display = "none";
+    return;
+  }
+
+  function setDesktopMode(enable){
+    let viewport = document.querySelector('meta[name="viewport"]');
+
+    if(enable){
+      viewport.setAttribute(
+        "content",
+        "width=1200, initial-scale=0.35"
+      );
+      btn.textContent = "Mobile Site";
+      btn.classList.add("active");
+    }else{
+      viewport.setAttribute(
+        "content",
+        "width=device-width, initial-scale=1.0"
+      );
+      btn.textContent = "Desktop Site";
+      btn.classList.remove("active");
+    }
+  }
+
+  btn.addEventListener("click", function(){
+    const isDesktop = btn.classList.contains("active");
+    setDesktopMode(!isDesktop);
+  });
+});
+</script>
 
 </body>
 </html>
