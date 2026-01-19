@@ -2,111 +2,150 @@
 <html lang="en">
 <head>
 
-
+<!-- ===================== ADSENSE ===================== -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"
      crossorigin="anonymous"></script>
 
-<!-- Google tag (gtag.js) -->
+<!-- ===================== ANALYTICS ===================== -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5R7EG2GQDB"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5R7EG2GQDB');
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-5R7EG2GQDB');
 </script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Allow search engines -->
 <meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
 
-<title> Lamb Game - VJ Junior</title>
-<meta name="description" content="Lamb Game 2026 free Luganda translated movies by Vj Junior by VJ Junior | VJ Jingo | VJ Kevo - Ice P Ulio">
+<title>Marketing2Advertising</title>
+<meta name="description" content="Watch 2026 Luganda movies by VJ Junior | VJ Jingo | VJ Kevo - Ice P vj Ulio. free Mobile friendly streaming site">
 
-
-<!-- ===================== BASE STYLES ===================== -->
 <style>
-* { box-sizing: border-box; transition: background 0.3s, color 0.3s; }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,system-ui;
+  background:#0b0b0b;
+  color:#fff;
+  line-height:1.7;
+}
+a{text-decoration:none;color:inherit}
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #000;
-  color: #fff;
-  line-height: 1.7;
-  transition: background 0.3s, color 0.3s;
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:9999;
+  background:#000;
+  padding:12px;
+  border-bottom:1px solid #222;
+}
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-size:20px;
+  font-weight:bold;
+  color:#fcff01;
 }
 
-/* MENU */
-.menu-bar {
-  position: sticky;
-  buttom: 0;
-  width: 70%;
-  max-width: 1000px;
-  margin: 0 auto 20px;
-  background: #fff;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 0;
-  border-radius: 0 0 12px 12px;
-  z-index: 9999;
-  transition: background 0.3s, color 0.3s;
+/* TOP AD */
+.top-ad{
+  max-width:1200px;
+  margin:10px auto;
+  text-align:center;
 }
 
-.menu-bar a {
-  font-family: Georgia, serif;
-  font-weight: 700;
-  padding: 8px 14px;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 18px;
-  border-radius: 6px;
-  transition: background 0.3s, color 0.3s;
+/* VIDEO */
+.video-wrap{
+  max-width:1100px;
+  margin:20px auto;
+  padding:0 10px;
+}
+video{
+  width:100%;
+  border-radius:12px;
+  background:#000;
 }
 
-.menu-home { background: #04ff00; color: #ff00fe; }
-.menu-movies { background: #3d85c6; color: #ffa400; }
-.menu-blogs { background: #fcff01; color: #351c75; }
-.menu-about { background: #01ffff; color: #cc0000; }
-.menu-contact { background: #4c1130; color: #fcff01; }
-.menu-jobs { background: #ff00fe; color: #04ff00; }
-
-@media(max-width:600px){
-  .menu-bar { width: 95% }
-  .menu-bar a { font-size: 15px; padding: 6px 10px }
+/* CONTENT */
+.content{
+  max-width:900px;
+  margin:auto;
+  padding:0 15px;
+}
+.content p{
+  font-size:18px;
+  margin-bottom:20px;
 }
 
-/* BLOG POST CONTENT */
-.content {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 0 15px;
+/* IN ARTICLE AD */
+.in-article-ad{
+  margin:30px 0;
+  text-align:center;
+  min-height:280px;
 }
 
-.content h1, .content h2 {
-  text-align: center;
-  color: #fcff01;
+/* MOVIE GRID */
+.grid-title{
+  text-align:center;
+  font-size:24px;
+  color:#fcff01;
+  margin:40px 0 20px;
+}
+.movie-grid{
+  max-width:1200px;
+  margin:auto;
+  padding:0 15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:18px;
+}
+.movie-card{
+  background:#111;
+  border-radius:10px;
+  overflow:hidden;
+}
+.movie-card img{
+  width:100%;
+  aspect-ratio:2/3;
+  object-fit:cover;
+}
+.movie-title{
+  background:#e50914;
+  padding:8px;
+  text-align:center;
+  font-size:14px;
 }
 
-.content p {
-  font-size: 18px;
-  margin-bottom: 15px;
+/* FOOTER */
+footer{
+  background:#000;
+  padding:30px;
+  margin-top:40px;
+  text-align:center;
+  color:#aaa;
 }
 
-.separator {
-  text-align: center;
-  margin: 30px 0;
+/* STICKY MOBILE AD */
+.sticky-ad{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#000;
+  padding:6px;
+  z-index:99999;
+  border-top:1px solid #222;
 }
-
-.separator img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
+@media(min-width:768px){
+  .sticky-ad{display:none}
 }
 
 /* SEARCH BOX */
@@ -294,6 +333,33 @@ body.light-mode .content p { color: #111; }
 body.light-mode .movie-card { background: #eee; }
 body.light-mode .movie-title { background: #007700; color: #fff; }
 
+/* ===== MENU ===== */
+.menu-bar{
+  position:sticky;
+  bottom:0;
+  background:#fff;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  padding:10px;
+}
+
+.menu-bar a{
+  padding:8px 14px;
+  border-radius:6px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.menu-home{background:#04ff00;color:#ff00fe}
+.menu-movies{background:#3d85c6;color:#ffa400}
+.menu-blogs{background:#fcff01;color:#351c75}
+.menu-about{background:#01ffff;color:#cc0000}
+.menu-contact{background:#4c1130;color:#fcff01}
+.menu-jobs{background:#ff00fe;color:#04ff00}
+
+
 /* TOGGLE BUTTON */
 #modeToggle {
   position: fixed;
@@ -312,18 +378,37 @@ body.light-mode .movie-title { background: #007700; color: #fff; }
 #modeToggle:hover { background: #ffdc00; }
 </style>
 </head>
+
 <body>
 
+<!-- ===================== HEADER ===================== -->
+<header>
+  <div class="header-inner">
+    <div class="logo">Marketing2Advertising</div>
+    <div>☰</div>
+  </div>
+</header>
 
-<!-- ===================== BLOG POST ===================== -->
+<!-- ===================== TOP BANNER AD ===================== -->
+<div class="top-ad">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2269884583846743"
+     data-ad-slot="2906167922"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
 
+<!-- ===================== VIDEO ===================== -->
+<div class="video-wrap">
 
 <div id="video-container" style="position:relative; width:100%; height:500px; margin:20px 0;">
 
     <!-- Video Player (No full-screen functionality) -->
     <div class="video-wrapper" style="position:relative; width:100%; height:100%;">
         <video id="videoPlayer" style="width:100%; height:100%" controls>
-            <source src="https://video.wixstatic.com/video/2b73f7_8af1ec182d1e4f278446d93b569fa53e/480p/mp4/file.mp4">
+            <source src="https://video.wixstatic.com/video/2b73f7_a280a57ffaa54403a32c86e881085f10/480p/mp4/file.mp4">
             Your browser does not support the video tag.
         </video>
     </div>
@@ -478,8 +563,29 @@ videoPlayer.addEventListener('fullscreenchange', function() {
 
 </script>
     </div>
-  
-  
+
+<!-- ===================== CONTENT ===================== -->
+<div class="content">
+
+<p>
+<div style="text-align: center;"><a class="button" href="https://www.marketing2advertising.com/contact-us.html" style="background-color: #007bff; border-radius: 5px; color: white; display: inline-block; font-family: Arial, sans-serif; margin: 20px 0px; padding: 15px 25px; text-decoration-line: none;" target="_blank">💼 For Business or Inquiries — WhatsApp Us</a></div>
+</p>
+
+<!-- IN ARTICLE AD (HIGH RPM) -->
+<div class="in-article-ad">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2269884583846743"
+     data-ad-slot="5610977415"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<p>
+<h1 style="font-family: Arial, sans-serif; text-align: center;">🚀 <span style="color: #04ff00;">Get Paid by completing microtasks </span>💸</h1><div><div style="text-align: center;"><a class="button" href="https://jumptask.marketing2advertising.com/" style="background-color: #007bff; border-radius: 5px; color: white; display: inline-block; font-family: Arial, sans-serif; font-size: 28px; margin: 20px 0px; padding: 15px 25px; text-decoration-line: none;" target="_blank">$209,82 USD Money received  👉 Visit site here🦾</a></div></div>
+</p>
+
 </div>
 
 <!-- ===================== SEARCH BOX ===================== -->
@@ -489,19 +595,6 @@ videoPlayer.addEventListener('fullscreenchange', function() {
 </div>
 <div id="searchResults" class="search-results"></div>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"
-     crossorigin="anonymous"></script>
-<!-- Vertical New -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2269884583846743"
-     data-ad-slot="2906167922"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 <!-- ===================== MOVIE GRID ===================== -->
 <div class="movie-grid-wrapper">
   <h2 class="grid-title">What Would You Like to Watch?</h2>
@@ -509,113 +602,26 @@ videoPlayer.addEventListener('fullscreenchange', function() {
 </div>
 
 
-<!-- ===================== MEMORY CARD GAME ===================== -->
-<div class="spin-lotto-wrapper" style="margin-top:50px;">
-  <h2>🃏 Memory Card Game</h2>
-  <div id="memoryBalance" style="margin-bottom:10px;">Points: 0</div>
-  <div id="memoryContainer" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(100px, 1fr)); gap:15px; justify-items:center;"></div>
-  <div id="memoryResult" style="text-align:center; color:#ffdd57; font-size:18px; min-height:24px; margin-top:10px;"></div>
-  <div style="text-align:center; margin-top:10px;">
-    <button id="memoryResetBtn" style="padding:10px 20px; font-size:16px; background:#1dd1a1; color:#fff; border:none; border-radius:8px; cursor:pointer;">Restart Game</button>
-  </div>
+<!-- ===================== FOOTER AD ===================== -->
+<div class="top-ad">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2269884583846743"
+     data-ad-slot="4256856469"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>
 
-<style>
-  .memory-card {
-    width: 100px;
-    height: 140px;
-    background: linear-gradient(135deg,#ff6b6b,#feca57);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    user-select: none;
-    position: relative;
-  }
-  .memory-card.flipped, .memory-card.matched {
-    background: #fff;
-    color: #111;
-    transform: rotateY(180deg);
-  }
-  .memory-card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(255,255,255,0.6);
-  }
-  @media(max-width:480px){
-    .memory-card { width:70px; height:100px; font-size:36px; }
-  }
-</style>
-
-<script>
-const memoryContainer = document.getElementById('memoryContainer');
-const memoryResult = document.getElementById('memoryResult');
-const memoryBalanceEl = document.getElementById('memoryBalance');
-let memoryPoints = 0;
-
-const memoryIcons = ["⭐","🎬","🍿","🎥","💎","🎁","🎯","🎸"];
-let memoryCards = [];
-let memoryFlipped = [];
-let memoryMatched = 0;
-
-function initMemoryGame() {
-    memoryContainer.innerHTML = '';
-    memoryCards = memoryIcons.concat(memoryIcons);
-    memoryCards.sort(()=>Math.random()-0.5);
-    memoryFlipped = [];
-    memoryMatched = 0;
-    memoryResult.textContent = '';
-    memoryCards.forEach(icon => {
-        const card = document.createElement('div');
-        card.classList.add('memory-card');
-        card.textContent = "?";
-        card.dataset.icon = icon;
-        card.addEventListener('click', ()=>flipMemoryCard(card));
-        memoryContainer.appendChild(card);
-    });
-}
-
-function flipMemoryCard(card){
-    if(memoryFlipped.length < 2 && !memoryFlipped.includes(card) && !card.classList.contains('matched')){
-        card.textContent = card.dataset.icon;
-        card.classList.add('flipped');
-        memoryFlipped.push(card);
-        if(memoryFlipped.length === 2){ setTimeout(checkMemoryMatch, 700); }
-    }
-}
-
-function checkMemoryMatch(){
-    const [card1, card2] = memoryFlipped;
-    if(card1.dataset.icon === card2.dataset.icon){
-        card1.classList.add('matched');
-        card2.classList.add('matched');
-        memoryPoints++;
-        memoryBalanceEl.textContent = `Points: ${memoryPoints}`;
-        memoryResult.textContent = "✅ Match! +1 point";
-        memoryMatched += 2;
-        if(memoryMatched === memoryCards.length){
-            memoryResult.textContent = "🎉 All Matched! +Bonus 5 points";
-            memoryPoints += 5;
-            memoryBalanceEl.textContent = `Points: ${memoryPoints}`;
-        }
-    } else {
-        card1.textContent = "?";
-        card2.textContent = "?";
-        card1.classList.remove('flipped');
-        card2.classList.remove('flipped');
-        memoryResult.textContent = "❌ Try Again";
-    }
-    memoryFlipped = [];
-}
-
-document.getElementById('memoryResetBtn').addEventListener('click', ()=>initMemoryGame());
-
-initMemoryGame();
-</script>
-
-
+<!-- ===================== MENU ===================== -->
+<nav class="menu-bar">
+  <a class="menu-home" href="/">Home</a>
+  <a class="menu-movies" href="https://www.marketing2advertising.com/search/label/movies1000.html">Movies</a>
+  <a class="menu-blogs" href="https://www.marketing2advertising.com/search/blogs.html">Blogs</a>
+  <a class="menu-about" href="https://www.marketing2advertising.com/p/about-us.html">About</a>
+  <a class="menu-contact" href="https://www.marketing2advertising.com/p/contact-us.html">Contact</a>
+  <a class="menu-jobs" href="https://www.marketing2advertising.com/2015/12/job-matching-across-ireland-singapore.html">Jobs</a>
+</nav>
 
 <!-- ===================== FOOTER ===================== -->
 <footer class="footer">
@@ -624,7 +630,7 @@ initMemoryGame();
     <a href="https://www.marketing2advertising.com/privacy-policy">Privacy</a> |
     <a href="https://www.marketing2advertising.com/p/affiliate-marketing-and-adsense.html">Disclosure</a> |
     <a href="https://www.marketing2advertising.com/terms-and-conditions">Terms</a>
-    <p>© 2025 Marketing2advertising</p>
+    <p>© 2026 Marketing2advertising</p>
   </div>
 </footer>
 
@@ -750,6 +756,17 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+
+<!-- ===================== STICKY MOBILE AD ===================== -->
+<div class="sticky-ad">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2269884583846743"
+     data-ad-slot="8811425590"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
 
 </body>
 </html>
