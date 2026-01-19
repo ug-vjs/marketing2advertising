@@ -308,7 +308,50 @@ body.light-mode .movie-title { background: #007700; color: #fff; }
 
 #modeToggle:hover { background: #ffdc00; }
 </style>
+
+<style>
+/* Floating WhatsApp Button */
+.whatsapp-center-btn {
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #25D366;
+  color: #ffffff;
+  padding: 22px 32px;
+  border-radius: 60px;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.whatsapp-center-btn:hover {
+  background: #1ebe5d;
+}
+
+/* Optional mobile size adjustment */
+@media (max-width: 600px) {
+  .whatsapp-center-btn {
+    font-size: 18px;
+    padding: 18px 26px;
+  }
+}
+</style>
+
 </head>
+
+
+<a class="whatsapp-center-btn"
+   href="https://api.whatsapp.com/send?phone=256745427011"
+   target="_blank">
+   💼 WhatsApp Us: +256745427011
+</a>
+
 <body>
 
 
@@ -376,41 +419,7 @@ body.light-mode .movie-title { background: #007700; color: #fff; }
   }
 </style>
 
-<div id="whatsapp-btn">
-  <img alt="WhatsApp" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="height: 35px; width: 35px;" />
-</div>
 
-<div id="whatsapp-form">
-  <div style="background-color: purple; height: 10px; margin: 10px 0px; width: 100%;">
-
-  <!--Adsense example-->
-  <ins class="adsbygoogle" data-ad-client="ca-pub-2269884583846743" data-ad-slot="1267838847" style="display: inline-block; height: 200px; width: 200px;">
-
-  <div style="background-color: green; height: 10px; margin: 10px 0px; width: 100%;">
-  <button id="wa-send">Email: mr@marketing2advertising.com</button>
-</div>
-
-<script>
-  const phoneNumber = &quot;marketing2advertising&quot;; // Replace with your WhatsApp number
-
-  // Toggle form visibility
-  document.getElementById(&quot;whatsapp-btn&quot;).addEventListener(&quot;click&quot;, function() {
-    document.getElementById(&quot;whatsapp-form&quot;).classList.toggle(&quot;show&quot;);
-  });
-
-  // Example send
-  document.getElementById(&quot;wa-send&quot;).addEventListener(&quot;click&quot;, function() {
-    const url = `https://www.marketing2advertising.com/2020/12/contact-us.html${phoneNumber}`;
-    window.open(url, &quot;_blank&quot;);
-    document.getElementById(&quot;whatsapp-form&quot;).classList.remove(&quot;show&quot;);
-  });
-
-  // Adsense init
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</ins></div></div>
-  
-  
 </div>
 
 <!-- ===================== SEARCH BOX ===================== -->
