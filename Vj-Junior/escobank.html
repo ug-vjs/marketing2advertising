@@ -1,11 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
-
+<!-- ===================== ADSENSE ===================== -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"
      crossorigin="anonymous"></script>
 
+<!-- ===================== ANALYTICS ===================== -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5R7EG2GQDB"></script>
 <script>
@@ -18,95 +20,135 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Allow search engines -->
 <meta name="robots" content="index, follow">
-<meta name="googlebot" content="index, follow">
 
-<title> Escobank - vj Junior</title>
-<meta name="description" content="Escobank 2026 free Luganda translated movies by Vj Junior by VJ Junior | VJ Jingo | VJ Kevo - Ice P Ulio">
+<title>  vj Junior - Escobank</title>
+<meta name="description"  G vj Junior - Escobank | VJ Jingo | VJ Kevo - Ice P vj Ulio. free Mobile friendly streaming site">
 
-
-<!-- ===================== BASE STYLES ===================== -->
 <style>
-* { box-sizing: border-box; transition: background 0.3s, color 0.3s; }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,system-ui;
+  background:#0b0b0b;
+  color:#fff;
+  line-height:1.7;
+}
+a{text-decoration:none;color:inherit}
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #000;
-  color: #fff;
-  line-height: 1.7;
-  transition: background 0.3s, color 0.3s;
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:9999;
+  background:#000;
+  padding:12px;
+  border-bottom:1px solid #222;
+}
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-size:20px;
+  font-weight:bold;
+  color:#fcff01;
 }
 
-/* MENU */
-.menu-bar {
-  position: sticky;
-  buttom: 0;
-  width: 70%;
-  max-width: 1000px;
-  margin: 0 auto 20px;
-  background: #fff;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 0;
-  border-radius: 0 0 12px 12px;
-  z-index: 9999;
-  transition: background 0.3s, color 0.3s;
+/* TOP AD */
+.top-ad{
+  max-width:1200px;
+  margin:10px auto;
+  text-align:center;
 }
 
-.menu-bar a {
-  font-family: Georgia, serif;
-  font-weight: 700;
-  padding: 8px 14px;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 18px;
-  border-radius: 6px;
-  transition: background 0.3s, color 0.3s;
+/* VIDEO */
+.video-wrap{
+  max-width:1100px;
+  margin:20px auto;
+  padding:0 10px;
+}
+video{
+  width:100%;
+  border-radius:12px;
+  background:#000;
 }
 
-.menu-home { background: #04ff00; color: #ff00fe; }
-.menu-movies { background: #3d85c6; color: #ffa400; }
-.menu-blogs { background: #fcff01; color: #351c75; }
-.menu-about { background: #01ffff; color: #cc0000; }
-.menu-contact { background: #4c1130; color: #fcff01; }
-.menu-jobs { background: #ff00fe; color: #04ff00; }
-
-@media(max-width:600px){
-  .menu-bar { width: 95% }
-  .menu-bar a { font-size: 15px; padding: 6px 10px }
+/* CONTENT */
+.content{
+  max-width:900px;
+  margin:auto;
+  padding:0 15px;
+}
+.content p{
+  font-size:18px;
+  margin-bottom:20px;
 }
 
-/* BLOG POST CONTENT */
-.content {
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 0 15px;
+/* IN ARTICLE AD */
+.in-article-ad{
+  margin:30px 0;
+  text-align:center;
+  min-height:280px;
 }
 
-.content h1, .content h2 {
-  text-align: center;
-  color: #fcff01;
+/* MOVIE GRID */
+.grid-title{
+  text-align:center;
+  font-size:24px;
+  color:#fcff01;
+  margin:40px 0 20px;
+}
+.movie-grid{
+  max-width:1200px;
+  margin:auto;
+  padding:0 15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:18px;
+}
+.movie-card{
+  background:#111;
+  border-radius:10px;
+  overflow:hidden;
+}
+.movie-card img{
+  width:100%;
+  aspect-ratio:2/3;
+  object-fit:cover;
+}
+.movie-title{
+  background:#e50914;
+  padding:8px;
+  text-align:center;
+  font-size:14px;
 }
 
-.content p {
-  font-size: 18px;
-  margin-bottom: 15px;
+/* FOOTER */
+footer{
+  background:#000;
+  padding:30px;
+  margin-top:40px;
+  text-align:center;
+  color:#aaa;
 }
 
-.separator {
-  text-align: center;
-  margin: 30px 0;
+/* STICKY MOBILE AD */
+.sticky-ad{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#000;
+  padding:6px;
+  z-index:99999;
+  border-top:1px solid #222;
 }
-
-.separator img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
+@media(min-width:768px){
+  .sticky-ad{display:none}
 }
 
 /* SEARCH BOX */
@@ -294,6 +336,33 @@ body.light-mode .content p { color: #111; }
 body.light-mode .movie-card { background: #eee; }
 body.light-mode .movie-title { background: #007700; color: #fff; }
 
+/* ===== MENU ===== */
+.menu-bar{
+  position:sticky;
+  bottom:0;
+  background:#fff;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  padding:10px;
+}
+
+.menu-bar a{
+  padding:8px 14px;
+  border-radius:6px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.menu-home{background:#04ff00;color:#ff00fe}
+.menu-movies{background:#3d85c6;color:#ffa400}
+.menu-blogs{background:#fcff01;color:#351c75}
+.menu-about{background:#01ffff;color:#cc0000}
+.menu-contact{background:#4c1130;color:#fcff01}
+.menu-jobs{background:#ff00fe;color:#04ff00}
+
+
 /* TOGGLE BUTTON */
 #modeToggle {
   position: fixed;
@@ -311,160 +380,93 @@ body.light-mode .movie-title { background: #007700; color: #fff; }
 
 #modeToggle:hover { background: #ffdc00; }
 </style>
+
+<style>
+/* ===== DESKTOP TOGGLE (INLINE, MOBILE ONLY) ===== */
+#desktopToggle{
+  display:inline-block;
+  background:#00ffcc;
+  color:#000;
+  border:none;
+  padding:8px 14px;
+  border-radius:6px;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:14px;
+}
+#desktopToggle.active{
+  background:#ff0044;
+  color:#fff;
+}
+/* Hide on desktop */
+@media (min-width: 992px){
+  #desktopToggle{display:none!important}
+}
+</style>
 </head>
+
 <body>
 
 
-<!-- ===================== BLOG POST ===================== -->
+<!-- ===================== HEADER ===================== -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
 
 
-<div id="video-container" style="position:relative; width:100%; height:500px; margin:20px 0;">
 
-    <!-- Video Player (No full-screen functionality) -->
-    <div class="video-wrapper" style="position:relative; width:100%; height:100%;">
-        <video id="videoPlayer" style="width:100%; height:100%" controls>
-            <source src="https://video.wixstatic.com/video/5d8d4f_7501117efeb5458e9be5588c34545db4/360p/mp4/file.mp4">
+</div>
+    <div>☰</div>
+  </div>
+</header>
+
+<!-- ===================== TOP BANNER AD ===================== -->
+<div class="top-ad">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2269884583846743"
+     data-ad-slot="2906167922"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<!--===================== VIDEO =====================-->
+<div class="video-wrap">
+
+  <!--===================== VIDEO =====================-->
+</p><div class="video-wrap">
+
+<div id="video-container" style="height: 500px; margin: 20px 0px; position: relative; width: 100%;">
+
+    <!--Video Player (No full-screen functionality)-->
+    <div class="video-wrapper" style="height: 100%; position: relative; width: 100%;">
+        <video controls="" id="videoPlayer" style="height: 100%; width: 100%;">
+            <source src="https://video.wixstatic.com/video/5d8d4f_7501117efeb5458e9be5588c34545db4/360p/mp4/file.mp4"></source>
             Your browser does not support the video tag.
         </video>
     </div>
 
-    <!-- 🎬 Ad Overlay (Inside Video Container) -->
-    <div id="ad-overlay" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.75); z-index:10; justify-content:center; align-items:center; flex-direction:column;">
-        <!-- Countdown and Skip Button -->
-        <div style="position:absolute; top:20px; right:20px; text-align:right; z-index: 20;">
-            <div id="countdown" style="color:white; font-size:22px; font-weight:bold; margin-bottom:8px;">Skip in: 7</div>
-            <button id="close-ad" style="display:none; background:#fff; border:none; font-size:20px; padding:6px 12px; cursor:pointer; border-radius:4px; font-weight:bold;">Skip</button>
+    <!--🎬 Ad Overlay (Inside Video Container)-->
+    <div id="ad-overlay" style="align-items: center; background: rgba(0, 0, 0, 0.75); display: none; flex-direction: column; height: 100%; justify-content: center; left: 0px; position: absolute; top: 0px; width: 100%; z-index: 10;">
+        <!--Countdown and Skip Button-->
+        <div style="position: absolute; right: 20px; text-align: right; top: 20px; z-index: 20;">
+            <div id="countdown" style="color: white; font-size: 22px; font-weight: bold; margin-bottom: 8px;">Skip in: 7</div>
+            <button id="close-ad" style="background: rgb(255, 255, 255); border-radius: 4px; border: none; cursor: pointer; display: none; font-size: 20px; font-weight: bold; padding: 6px 12px;">Skip</button>
         </div>
 
-        <!-- Google AdSense Ad Container -->
-        <div id="ad-wrapper" style="display:flex; justify-content:center; align-items:center; width:100%; height:100%; text-align:center;">
-            <!-- AdSense ad will be inserted here dynamically -->
+        <!--Google AdSense Ad Container-->
+        <div id="ad-wrapper" style="align-items: center; display: flex; height: 100%; justify-content: center; text-align: center; width: 100%;">
+            <!--AdSense ad will be inserted here dynamically-->
         </div>
     </div>
 
 </div>
 
-<!-- 🎬 Google AdSense script -->
-<script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743'></script>
+<!--🎬 Google AdSense script-->
+<script async="async" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"></script>
 
 <script>
-// Variables to control ad behavior
-let skipClicked = false; // Flag to track if the "Skip" button was clicked
-let videoPlayer = document.getElementById("videoPlayer"); // Video element reference
-
-// Ad configuration for Google AdSense (5 rotating ads)
-const ads = [
-    { client:"ca-pub-2269884583846743", slot:"2359999321", width:300, height:250 },
-    { client:"ca-pub-2269884583846743", slot:"4256856469", width:250, height:250 },
-    { client:"ca-pub-2269884583846743", slot:"2038317814", width:300, height:600 },
-    { client:"ca-pub-2269884583846743", slot:"8811425590", width:320, height:100 },
-    { client:"ca-pub-2269884583846743", slot:"5610977415", width:336, height:280 }
-];
-
-let currentAdIndex = 0; // Keeps track of which ad to show next
-
-// Function to show ad overlay with video and countdown
-function showAdOverlay(customSeconds = 8) {
-    const overlay = document.getElementById("ad-overlay");
-    const countdownEl = document.getElementById("countdown");
-    const closeBtn = document.getElementById("close-ad");
-    const adWrapper = document.getElementById("ad-wrapper");
-
-    overlay.style.display = "flex";
-    closeBtn.style.display = "none"; // Initially hide the button
-    adWrapper.innerHTML = ""; // Clear previous ad content
-
-    // Load ad
-    const ad = ads[currentAdIndex];
-    const ins = document.createElement("ins");
-    ins.className = "adsbygoogle";
-    ins.style.display = "inline-block";
-    ins.style.width = ad.width + "px";
-    ins.style.height = ad.height + "px";
-    ins.setAttribute("data-ad-client", ad.client);
-    ins.setAttribute("data-ad-slot", ad.slot);
-
-    adWrapper.appendChild(ins);
-    (adsbygoogle = window.adsbygoogle || []).push({}); // Request AdSense ad to load
-
-    // Prepare next ad rotation
-    currentAdIndex = (currentAdIndex + 1) % ads.length;
-
-    // Countdown logic
-    let timeLeft = customSeconds;
-    countdownEl.textContent = "Skip in: " + timeLeft;
-
-    const timer = setInterval(function() {
-        timeLeft--;
-        countdownEl.textContent = "Skip in: " + timeLeft;
-
-        if (timeLeft === 0) {
-            closeBtn.style.display = "inline-block"; // Show the skip button after countdown ends
-            closeBtn.textContent = "X"; // Change button to "X"
-            clearInterval(timer);
-        }
-    }, 1000); // 1-second interval for countdown
-
-    // Handle close button behavior
-    closeBtn.onclick = function() {
-        overlay.style.display = "none"; // Close the ad overlay
-        videoPlayer.play(); // Play the video after ad is skipped
-    };
-}
-
-// Special rule: First opening = 2 ads with delay (after 2 minutes)
-function runInitialTwoAds() {
-    setTimeout(() => {
-        // Ad 1 = 7 seconds
-        showAdOverlay(7); // Ad 1 displays for 7 seconds
-
-        // After 7 seconds, show the Skip button
-        setTimeout(() => {
-            const closeBtn = document.getElementById("close-ad");
-            closeBtn.style.display = "inline-block"; // Show "Skip" button
-            closeBtn.textContent = "Skip"; // Set button text to "Skip"
-        }, 7000); // Show Skip button after 7 seconds
-
-        // Check if "Skip" button is clicked before transitioning to Ad 2
-        const closeBtn = document.getElementById("close-ad");
-        closeBtn.onclick = function() {
-            skipClicked = true; // Mark that "Skip" was clicked
-            showAdOverlay(8); // Show Ad 2 immediately (for 8 seconds)
-            closeBtn.style.display = "none"; // Hide the skip button
-        };
-
-        // If "Skip" button isn't clicked, Ad 2 will show after 13 more seconds (20 seconds total)
-        setTimeout(() => {
-            if (!skipClicked) {
-                showAdOverlay(8); // Ad 2 shows for 8 seconds after the delay
-            }
-        }, 20000); // Trigger after 20 seconds (7 seconds for Ad 1 + 13 seconds wait)
-    }, 120000); // Wait 2 minutes (120 seconds) before showing the first ad
-}
-
-// Start the ad sequence
-runInitialTwoAds(); // Display first two ads after 2 minutes (7s + 13s wait = 20s)
-
-// Start full schedule AFTER the second ad finishes
-setTimeout(() => {
-    // Further ad schedule starts here (after initial ads)
-    
-    // 1) 5 minutes (300 seconds)
-    setTimeout(showAdOverlay, 300000);
-
-    // 2) 10 minutes (600 seconds)
-    setTimeout(showAdOverlay, 600000);
-
-    // 3) 20 minutes (1200 seconds)
-    setTimeout(showAdOverlay, 1200000);
-
-    // 4) 30 minutes (1800 seconds)
-    setTimeout(showAdOverlay, 1800000);
-
-    // 5) Every 35 minutes (2100 seconds)
-    setInterval(showAdOverlay, 2100000);
-
-}, 20000); // Wait for the first 20 seconds (7 + 13) to complete, then start the schedule
 
 // Prevent Full-Screen Mode
 videoPlayer.removeAttribute("controlsList"); // Remove full-screen control from the player
@@ -477,9 +479,28 @@ videoPlayer.addEventListener('fullscreenchange', function() {
 });
 
 </script>
+
     </div>
-  
-  
+
+<!-- ===================== CONTENT ===================== -->
+<div class="content">
+
+
+<!-- IN ARTICLE AD (HIGH RPM) -->
+<div class="in-article-ad">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2269884583846743"
+     data-ad-slot="5610977415"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<p>
+</p><h1 style="font-family: Arial, sans-serif; text-align: center;">🚀 <span style="color: #04ff00;">Get Paid by completing microtasks </span>💸</h1><div><div style="text-align: center;"><a class="button" href="https://www.marketing2advertising.com/p/get-paid-by-completing-microtasks.html" style="background-color: #007bff; border-radius: 5px; color: white; display: inline-block; font-family: Arial, sans-serif; font-size: 28px; margin: 20px 0px; padding: 15px 25px; text-decoration-line: none;" target="_blank">$209,82 USD Money received  👉 Visit site here🦾</a></div></div>
+<p>
+
 </div>
 
 <!-- ===================== SEARCH BOX ===================== -->
@@ -489,19 +510,6 @@ videoPlayer.addEventListener('fullscreenchange', function() {
 </div>
 <div id="searchResults" class="search-results"></div>
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743"
-     crossorigin="anonymous"></script>
-<!-- Vertical New -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2269884583846743"
-     data-ad-slot="2906167922"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
 <!-- ===================== MOVIE GRID ===================== -->
 <div class="movie-grid-wrapper">
   <h2 class="grid-title">What Would You Like to Watch?</h2>
@@ -509,111 +517,16 @@ videoPlayer.addEventListener('fullscreenchange', function() {
 </div>
 
 
-<!-- ===================== MEMORY CARD GAME ===================== -->
-<div class="spin-lotto-wrapper" style="margin-top:50px;">
-  <h2>🃏 Memory Card Game</h2>
-  <div id="memoryBalance" style="margin-bottom:10px;">Points: 0</div>
-  <div id="memoryContainer" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(100px, 1fr)); gap:15px; justify-items:center;"></div>
-  <div id="memoryResult" style="text-align:center; color:#ffdd57; font-size:18px; min-height:24px; margin-top:10px;"></div>
-  <div style="text-align:center; margin-top:10px;">
-    <button id="memoryResetBtn" style="padding:10px 20px; font-size:16px; background:#1dd1a1; color:#fff; border:none; border-radius:8px; cursor:pointer;">Restart Game</button>
-  </div>
+<!-- ===================== FOOTER AD ===================== -->
+<div class="top-ad">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2269884583846743"
+     data-ad-slot="4256856469"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>
-
-<style>
-  .memory-card {
-    width: 100px;
-    height: 140px;
-    background: linear-gradient(135deg,#ff6b6b,#feca57);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    user-select: none;
-    position: relative;
-  }
-  .memory-card.flipped, .memory-card.matched {
-    background: #fff;
-    color: #111;
-    transform: rotateY(180deg);
-  }
-  .memory-card:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(255,255,255,0.6);
-  }
-  @media(max-width:480px){
-    .memory-card { width:70px; height:100px; font-size:36px; }
-  }
-</style>
-
-<script>
-const memoryContainer = document.getElementById('memoryContainer');
-const memoryResult = document.getElementById('memoryResult');
-const memoryBalanceEl = document.getElementById('memoryBalance');
-let memoryPoints = 0;
-
-const memoryIcons = ["⭐","🎬","🍿","🎥","💎","🎁","🎯","🎸"];
-let memoryCards = [];
-let memoryFlipped = [];
-let memoryMatched = 0;
-
-function initMemoryGame() {
-    memoryContainer.innerHTML = '';
-    memoryCards = memoryIcons.concat(memoryIcons);
-    memoryCards.sort(()=>Math.random()-0.5);
-    memoryFlipped = [];
-    memoryMatched = 0;
-    memoryResult.textContent = '';
-    memoryCards.forEach(icon => {
-        const card = document.createElement('div');
-        card.classList.add('memory-card');
-        card.textContent = "?";
-        card.dataset.icon = icon;
-        card.addEventListener('click', ()=>flipMemoryCard(card));
-        memoryContainer.appendChild(card);
-    });
-}
-
-function flipMemoryCard(card){
-    if(memoryFlipped.length < 2 && !memoryFlipped.includes(card) && !card.classList.contains('matched')){
-        card.textContent = card.dataset.icon;
-        card.classList.add('flipped');
-        memoryFlipped.push(card);
-        if(memoryFlipped.length === 2){ setTimeout(checkMemoryMatch, 700); }
-    }
-}
-
-function checkMemoryMatch(){
-    const [card1, card2] = memoryFlipped;
-    if(card1.dataset.icon === card2.dataset.icon){
-        card1.classList.add('matched');
-        card2.classList.add('matched');
-        memoryPoints++;
-        memoryBalanceEl.textContent = `Points: ${memoryPoints}`;
-        memoryResult.textContent = "✅ Match! +1 point";
-        memoryMatched += 2;
-        if(memoryMatched === memoryCards.length){
-            memoryResult.textContent = "🎉 All Matched! +Bonus 5 points";
-            memoryPoints += 5;
-            memoryBalanceEl.textContent = `Points: ${memoryPoints}`;
-        }
-    } else {
-        card1.textContent = "?";
-        card2.textContent = "?";
-        card1.classList.remove('flipped');
-        card2.classList.remove('flipped');
-        memoryResult.textContent = "❌ Try Again";
-    }
-    memoryFlipped = [];
-}
-
-document.getElementById('memoryResetBtn').addEventListener('click', ()=>initMemoryGame());
-
-initMemoryGame();
-</script>
 
 
 
@@ -623,8 +536,9 @@ initMemoryGame();
     <a href="https://www.marketing2advertising.com/contact-us.html">Contact</a> |
     <a href="https://www.marketing2advertising.com/privacy-policy">Privacy</a> |
     <a href="https://www.marketing2advertising.com/p/affiliate-marketing-and-adsense.html">Disclosure</a> |
+    <a href="https://www.marketing2advertising.com/search/label/movies1000.html">movies</a> |
     <a href="https://www.marketing2advertising.com/terms-and-conditions">Terms</a>
-    <p>© 2025 Marketing2advertising</p>
+    <p>© 2026 Marketing2advertising</p>
   </div>
 </footer>
 
@@ -657,8 +571,6 @@ initMemoryGame();
 </style>
 
 
-<!-- ===================== DARK/LIGHT MODE TOGGLE ===================== -->
-<button id="modeToggle">LIGHT Mode</button>
 
 <!-- ===================== JAVASCRIPT ===================== -->
 <script>
@@ -669,7 +581,7 @@ toggleBtn.addEventListener('click', () => {
 });
 
 // BLOGGER SEARCH
-const BLOG_URL = "https://kfc.marketing2advertising.com/";
+const BLOG_URL = "https://www.marketing2advertising.com/";
 
 function searchPosts(query) {
   if (!query) return;
@@ -748,6 +660,188 @@ document.addEventListener("DOMContentLoaded", function() {
     window.scrollTo(0, 0); // Scroll to the top after 3 seconds
   }, 3000); // 3 seconds = 3,000 milliseconds
 });
+</script>
+
+
+<!-- ===================== STICKY MOBILE AD ===================== -->
+<div class="sticky-ad">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2269884583846743"
+     data-ad-slot="8811425590"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  const btn = document.getElementById("desktopToggle");
+  if(!btn) return;
+
+  if(window.innerWidth >= 992){
+    btn.style.display = "none";
+    return;
+  }
+
+  function setDesktopMode(enable){
+    let viewport = document.querySelector('meta[name="viewport"]');
+
+    if(enable){
+      viewport.setAttribute(
+        "content",
+        "width=1200, initial-scale=0.35"
+      );
+      btn.textContent = "Mobile Site";
+      btn.classList.add("active");
+    }else{
+      viewport.setAttribute(
+        "content",
+        "width=device-width, initial-scale=1.0"
+      );
+      btn.textContent = "Desktop Site";
+      btn.classList.remove("active");
+    }
+  }
+
+  btn.addEventListener("click", function(){
+    const isDesktop = btn.classList.contains("active");
+    setDesktopMode(!isDesktop);
+  });
+});
+</script>
+
+ <!-- Google AdSense script -->
+<script async='async' crossorigin='anonymous' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2269884583846743'/>
+
+<!-- Overlay container -->
+<div id='ad-overlay' style='display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.75); z-index:999999; justify-content:center; align-items:center;'>
+    <div style='position:absolute; top:20px; right:20px; text-align:right;'>
+        <div id='countdown' style='color:white; font-size:22px; font-weight:bold; margin-bottom:8px;'/>
+        <button id='close-ad' style='display:none; background:#fff; border:none; font-size:20px; padding:6px 12px; cursor:pointer; border-radius:4px; font-weight:bold;'>Skip</button>
+    </div>
+
+    <div id='ad-wrapper' style='display:flex; justify-content:center; align-items:center; width:100%; height:100%; text-align:center;'/>
+</div>
+
+<script>
+/* ------------------------------------
+   5 rotating ads
+------------------------------------- */
+const ads = [
+    { client:&quot;ca-pub-2269884583846743&quot;, slot:&quot;2359999321&quot;, width:300, height:250 },
+    { client:&quot;ca-pub-2269884583846743&quot;, slot:&quot;3846048455&quot;, width:350, height:600 },
+    { client:&quot;ca-pub-2269884583846743&quot;, slot:&quot;4256856469&quot;, width:250, height:250 },
+    { client:&quot;ca-pub-2269884583846743&quot;, slot:&quot;8811425590&quot;, width:320, height:100 },
+    { client:&quot;ca-pub-2269884583846743&quot;, slot:&quot;5610977415&quot;, width:336, height:280 }
+];
+
+let currentAdIndex = 0;
+let skipClicked = false; // Flag to track if the &quot;Skip&quot; button was clicked
+
+/* Show ad overlay with variable countdown */
+function showAdOverlay(customSeconds = 8) {
+    const overlay = document.getElementById(&quot;ad-overlay&quot;);
+    const countdownEl = document.getElementById(&quot;countdown&quot;);
+    const closeBtn = document.getElementById(&quot;close-ad&quot;);
+    const adWrapper = document.getElementById(&quot;ad-wrapper&quot;);
+
+    overlay.style.display = &quot;flex&quot;;
+    closeBtn.style.display = &quot;none&quot;; // Initially hide the button
+    adWrapper.innerHTML = &quot;&quot;;
+
+    /* Load ad */
+    const ad = ads[currentAdIndex];
+    const ins = document.createElement(&quot;ins&quot;);
+    ins.className = &quot;adsbygoogle&quot;;
+    ins.style.display = &quot;inline-block&quot;;
+    ins.style.width = ad.width + &quot;px&quot;;
+    ins.style.height = ad.height + &quot;px&quot;;
+    ins.setAttribute(&quot;data-ad-client&quot;, ad.client);
+    ins.setAttribute(&quot;data-ad-slot&quot;, ad.slot);
+
+    adWrapper.appendChild(ins);
+    (adsbygoogle = window.adsbygoogle || []).push({});
+
+    /* Prepare next rotation */
+    currentAdIndex = (currentAdIndex + 1) % ads.length;
+
+    /* Countdown logic */
+    let timeLeft = customSeconds;
+    countdownEl.textContent = &quot;Close available in: &quot; + timeLeft;
+
+    const timer = setInterval(function() {
+        timeLeft--;
+        countdownEl.textContent = &quot;Close available in: &quot; + timeLeft;
+
+        if (timeLeft === 0) {
+            closeBtn.style.display = &quot;inline-block&quot;; // Show the button after countdown finishes
+            closeBtn.textContent = &quot;X&quot;; // Change button to &quot;X&quot; after countdown
+            clearInterval(timer);
+        }
+    }, 1000); // 1-second interval for countdown
+
+    /* Close button behavior */
+    closeBtn.onclick = function() {
+        overlay.style.display = &quot;none&quot;; // Close the ad overlay
+    };
+}
+
+/* --------------------------------------------
+   SPECIAL RULE: First opening = 2 ads with delay
+--------------------------------------------- */
+function runInitialTwoAds() {
+    // Ad 1 = 7 seconds
+    showAdOverlay(7); // Ad 1 displays for 7 seconds
+
+    // After 7 seconds, show the Skip button
+    setTimeout(() =&gt; {
+        const closeBtn = document.getElementById(&quot;close-ad&quot;);
+        closeBtn.style.display = &quot;inline-block&quot;; // Show &quot;Skip&quot; button
+        closeBtn.textContent = &quot;Skip&quot;; // Set button text to &quot;Skip&quot;
+    }, 7000); // Show Skip button after 7 seconds
+
+    // Check if &quot;Skip&quot; button is clicked before transitioning to Ad 2
+    const closeBtn = document.getElementById(&quot;close-ad&quot;);
+    closeBtn.onclick = function() {
+        skipClicked = true; // Mark that &quot;Skip&quot; was clicked
+        showAdOverlay(8); // Show Ad 2 immediately (for 8 seconds)
+        closeBtn.style.display = &quot;none&quot;; // Hide the skip button
+    };
+
+    // If &quot;Skip&quot; button isn&#39;t clicked, Ad 2 will show after 13 more seconds (20 seconds total)
+    setTimeout(() =&gt; {
+        if (!skipClicked) {
+            showAdOverlay(8); // Ad 2 shows for 8 seconds after the delay
+        }
+    }, 20000); // Trigger after 20 seconds (7 seconds for Ad 1 + 13 seconds wait)
+}
+
+/* --------------------------------------------
+   Start full schedule AFTER first 20 seconds
+--------------------------------------------- */
+
+runInitialTwoAds(); // Display first two ads immediately (7s + 13s wait = 20s)
+
+/* Start schedule AFTER the second ad finishes */
+setTimeout(() =&gt; {
+
+    // 1) 40 seconds
+    setTimeout(showAdOverlay, 40000);
+
+    // 2) 90 seconds
+    setTimeout(showAdOverlay, 90000);
+
+    // 3) 150 seconds
+    setTimeout(showAdOverlay, 150000);
+
+    // 4) 270 seconds
+    setTimeout(showAdOverlay, 270000);
+
+    // 5) Every 570 seconds
+    setInterval(showAdOverlay, 570000);
+
+}, 20000); // Wait for the first 20 seconds (7 + 13) to complete
 </script>
 
 
